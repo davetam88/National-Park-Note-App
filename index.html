@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>National Park Finder</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
+		type="text/css" />
+	<!-- <link href="index2.css" rel="stylesheet" type="text/css" /> -->
+	<link href="index.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+	<header class="bg-callout">
+		<h1>National Park Finder</h1>
+		<h2 class="app-title"> All The Information You Need to Know About Your Favorite National Park in One Easy to Use
+			App, You Can Narrow Down Your Search by State And Activities</h2>
+		<h3 class="filter-title"> Select your Filter Please</h3>
+		<form id="js-form">
+			<div class="center wrap">
+				<div class="field-group">
+					<div class="field">
+						<div id="state-options-file"></div>
+					</div>
+					<div class="field">
+						<div id="activities-options-file"></div>
+					</div>
+					<div class="filter-button-section">
+						<button type="reset" id="reset">Reset</button>
+						<input type="submit" id="submit" value="Submit">
+					</div>
+					<p id="js-error-message" class="error-message"></p>
+				</div>
+		</form>
+	</header>
+
+	<main>
+		<section id="js-results" class="hidden bg-main-display cls-results">
+		</section>
+
+	</main>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.js"
+		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
+	<script>
+		//  load states and activities options from external file.
+		$(function ()
+		{
+			$("#state-options-file").load("state.html");
+			$("#activities-options-file").load("activities.html");
+		});
+	</script>
+
+	<script src="index.js">	</script>
+</body>
+
+</html>

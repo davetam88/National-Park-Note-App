@@ -1,0 +1,265 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before *::after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: 'Lato', 'Roboto', sans-serif;
+  text-align: center;
+  /***border: 2px solid red; */
+  margin: 0;
+}
+
+h3 {
+  font-size: 22px;
+  margin: 0px;
+}
+
+a:hover {
+  color: #D82C18;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-message {
+  color: red;
+}
+
+em {
+  color: #7100ff;
+}
+
+/*** form */
+
+.cls-form {
+  margin-bottom: 0;
+}
+
+/*** nav bar */
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  /* justify-content: space-around; */
+  /* flex-wrap: wrap; */
+  border: 2px solid green;
+  padding: 10px 0px;
+  padding-right: 5px;
+  background-color: #00ff00;
+  text-align: right;
+  color: purple
+}
+
+.nav-container a:link {
+  color: red;
+}
+
+/*** header */
+
+header {
+  background-image: url(images/mountains5.jpg);
+  background-size: cover;
+  background-color: lightblue;
+  border: 0px solid red;
+  background-size: 100% 100%;
+}
+
+header h1 {
+  color: #ffffff;
+  text-align: center;
+  margin: 0px;
+  padding: 35px 0 15px;
+  font-size: 40px;
+  border: 0px solid yellow;
+}
+
+header h2 {
+  color: #ffffff;
+  margin: 20px 4%;
+  font-size: 25px;
+  border: 0px solid green;
+}
+
+.filter-title {
+  color: #ffffff;
+  margin: 10px 0;
+  font-size: 25px;
+  border: 0px solid green;
+}
+
+h3 header {
+  color: coral;
+  text-align: center;
+  margin: 20px;
+  font-size: 25px;
+  border: 0px solid green;
+}
+
+section h3 {
+  color: green;
+  text-align: center;
+  border: 0px solid green;
+}
+
+/*** input box stuff */
+
+label {
+  display: inline-block;
+  min-width: 200px;
+  background: #DDD;
+}
+
+.field {
+  padding-bottom: 4px;
+  margin-top: 4px;
+}
+
+.field-qty-num, option {
+  width: 202px;
+  text-align: center;
+}
+
+.filter-button-section {
+  margin: 3px;
+}
+
+/***for the input button box to center */
+
+select {
+  text-align-last: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /***  height: 200px; */
+  border: 0px solid green;
+}
+
+#submit {
+  font-size: 14px;
+  background-color: #517414;
+  ;
+  -webkit-appearance: media-sliderthumb;
+  padding: 6px;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+#reset {
+  font-size: 14px;
+  background-color: lightsalmon;
+  -webkit-appearance: media-sliderthumb;
+  padding: 6px;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+/*** main and section  */
+
+main {
+  background-color: #f1eded;
+}
+
+/*** heading for main, more pic and videos */
+
+.create-account-msg {
+  background-color: #f1eded;
+}
+
+/*** heading  for main, more pic and videos */
+
+.overlay-section-heading {
+  color: #348710;
+  border: 0px solid green;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.park-info-title-container {
+  height: 50px;
+}
+
+.overlay-title-container {
+  font-size: 20px;
+  color: green;
+}
+
+/*** group flex  */
+
+.group-container {
+  border: 0px solid #F9F871;
+  margin: 0 auto;
+  /***padding: 10px; */
+  justify-content: space-evenly;
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.btn-go-watch-now, .btn-more-pic, .btn-video, .btn-go-back {
+  font-size: 14px;
+  background-color: #517414;
+  -webkit-appearance: media-sliderthumb;
+  padding: 6px;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+/*** item container */
+
+.item {
+  padding: 5px;
+  border: 2px solid gray;
+}
+
+/*** media  query */
+
+@media (min-width: 400px) {
+  .item {
+    flex-basis: 100%;
+  }
+  header h2 {
+    margin: 20px 5%;
+    /* border: 1px solid yellow; */
+  }
+}
+
+@media (min-width: 700px) {
+  .item {
+    flex-basis: 50%;
+  }
+  header h2 {
+    margin: 20px 10%;
+    /* border: 1px solid red; */
+  }
+}
+
+@media (min-width: 1050px) {
+  .item {
+    flex-basis: 33%;
+  }
+  header h2 {
+    margin: 20px 20%;
+    /* border: 1px solid green; */
+  }
+}
