@@ -23,48 +23,70 @@
       </h2>
     </div>
 
-    <h3 class="filter-title"> Enter Registration Infomation Please</h3>
+    <h3 class="filter-title"> Select your Filter Please</h3>
+
 
     <form class="cls-form" id="js-form">
       <div class="center wrap">
         <div class="field-group">
 
-          <div>
-            <label for="username" class="label">
-              Username:</label>
-            <input type="text" required="" name="username" id="username" value="testuser1">
-            <br>
-
-            <label for="password" class="label">Password:</label>
-            <input type="password" id="password" required="" name="password" value="Password">
-            <br>
-
-            <label for="password" class="label">Re-type Password:</label>
-            <input type="password" id="password" required="" name="password" value="Password">
-            <br>
-
-            <div class="filter-button-section">
-              <button type="reset" id="reset">Reset</button>
-              <input type="submit" id="submit" value="Submit">
+          <div class="field">
+            <div id="state-options-file">
+              <label for="js-state-name"> State Name </label>
+              <select class="itemRight field-qty-num" id="js-state-name">
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
             </div>
           </div>
 
-          <div id="js-error-message" class="error-message">abcd</div>
+          <div class="field">
+            <div id="activities-options-file">
+              <label for="id_field_states"> Activities</label>
+              <select class="itemRight field-qty-num" id="js-activities">
+                <option value="All">-- All Activities --</option>
+                <option value="Biking">Biking</option>
+                <option value="Birdwatching">Birdwatching</option>
+                <option value="Boating">Boating</option>
+                <option value="Camping">Camping</option>
+                <option value="Winter Sports">Winter Sports</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-button-section">
+            <button type="reset" id="reset">Reset</button>
+            <input type="submit" id="submit" value="Submit">
+          </div>
+
+          <div id="js-error-message" class="error-message">
+            <p>
+              abcd
+            </p>
+          </div>
+
         </div>
 
       </div>
     </form>
   </header>
 
+  <!-- login user page -->
   <div class="nav-container">
-    <div>
+    <div class="btn-my-parks">
+      <button>My National Parks</button>
     </div>
     <div>
-      Create an account and you can save your favorite park(s) information.
+
     </div>
     <div>
-      <a href="wf-login.html">Login</a>
-      <a href="wf-registration.html">Registration</a>
+      <a href=" wf-about.html">About</a>
+      <a href=" wf-main.html">Logout</a>
     </div>
   </div>
 
@@ -171,8 +193,6 @@
   </script>
 
   <script src="index.js">	</script>
-
-
 
 </body>
 
