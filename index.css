@@ -49,23 +49,73 @@ em {
   margin-bottom: 0;
 }
 
-/*** nav bar */
+/*** nav bar - link */
 
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  /* justify-content: space-around; */
-  /* flex-wrap: wrap; */
-  border: 2px solid green;
-  padding: 10px 0px;
+.nav-links {
   padding-right: 5px;
-  background-color: #00ff00;
   text-align: right;
-  color: purple
 }
 
 .nav-container a:link {
-  color: red;
+  color: black;
+}
+
+.nav-main-container {
+  margin: 5px 0px;
+  border: 0px solid green;
+}
+
+/*** nav bar - my fav controls */
+
+.nav-myFav-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-bottom: 5px;
+}
+
+.nav-myFav-btn {
+  font-size: 14px;
+  /* background-color: #517414; */
+  -webkit-appearance: media-sliderthumb;
+  padding: 6px;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+  /* other */
+  border: 1px solid #0066cc;
+  background-color: #0099cc;
+  color: #ffffff;
+  /* padding: 5px 5px; */
+}
+
+.nav-myFav-btn:hover {
+  font-size: 14px;
+  background-color: #517414;
+  -webkit-appearance: media-sliderthumb;
+  padding: 6px;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+  /* other */
+  border: 1px solid #0099cc;
+  background-color: #00aacc;
+  color: #ffffff;
+  /* padding: 5px 5px; */
+}
+
+.nav-myFav-btn:disabled, .nav-myFav-btn[disabled] {
+  font-size: 14px;
+  background-color: #517414;
+  -webkit-appearance: media-sliderthumb;
+  padding: 6px;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+  /* other */
+  border: 1px solid #999999;
+  background-color: #c0c0c0;
+  color: #666666;
 }
 
 /*** header */
@@ -154,7 +204,6 @@ select {
 #submit {
   font-size: 14px;
   background-color: #517414;
-  ;
   -webkit-appearance: media-sliderthumb;
   padding: 6px;
   color: white;
@@ -178,6 +227,22 @@ main {
   background-color: #f1eded;
 }
 
+main h1 {
+  /* color: #ffffff; */
+  text-align: center;
+  margin: 0px;
+  padding: 35px 0 15px;
+  font-size: 2rem;
+  border: 0px solid yellow;
+}
+
+main h2 {
+  /* color: #ffffff; */
+  margin: 20px 4%;
+  font-size: 1.5rem;
+  border: 0px solid green;
+}
+
 /*** heading for main, more pic and videos */
 
 .create-account-msg {
@@ -194,7 +259,7 @@ main {
 }
 
 .park-info-title-container {
-  height: 50px;
+  height: 78px;
 }
 
 .overlay-title-container {
@@ -216,7 +281,7 @@ main {
   flex-wrap: wrap;
 }
 
-.btn-go-watch-now, .btn-more-pic, .btn-video, .btn-go-back {
+.btn-generic {
   font-size: 14px;
   background-color: #517414;
   -webkit-appearance: media-sliderthumb;

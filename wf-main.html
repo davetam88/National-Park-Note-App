@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>National Park Finder</title>
+	<title>National Park Trip Planner</title>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
 		type="text/css">
 	<!-- <link href="index2.css" rel="stylesheet" type="text/css" /> -->
@@ -15,11 +15,11 @@
 <body data-new-gr-c-s-check-loaded="14.1001.0" data-gr-ext-installed="">
 	<header class="bg-callout">
 
-		<h1>National Park Finder</h1>
+		<h1>National Park Trip Planner</h1>
 
 		<div class='no-login'>
 			<h2 class="app-title"> All The Information You Need to Know About Your Favorite National Park in One Easy to Use
-				App, You Can Narrow Down Your Search by State And Activities
+				App, Narrow Down Your Search by State And Activities; Plan your trip by creating your own user account.
 			</h2>
 		</div>
 
@@ -37,9 +37,6 @@
 								<option value="AK">Alaska</option>
 								<option value="AZ">Arizona</option>
 								<option value="AR">Arkansas</option>
-								<option value="WA">Washington</option>
-								<option value="WV">West Virginia</option>
-								<option value="WI">Wisconsin</option>
 								<option value="WY">Wyoming</option>
 							</select>
 						</div>
@@ -52,8 +49,6 @@
 								<option value="All">-- All Activities --</option>
 								<option value="Biking">Biking</option>
 								<option value="Birdwatching">Birdwatching</option>
-								<option value="Boating">Boating</option>
-								<option value="Camping">Camping</option>
 								<option value="Winter Sports">Winter Sports</option>
 							</select>
 						</div>
@@ -64,9 +59,6 @@
 					</div>
 
 					<div id="js-error-message" class="error-message">
-						<p>
-							abcd
-						</p>
 					</div>
 
 				</div>
@@ -76,21 +68,20 @@
 	</header>
 
 	<!-- main -->
-	<div class="nav-container">
-		<div>
+	<div class="nav-main-container">
+		<div class="nav-links">
+			<div>
+				<a href="wf-main.html">Home</a>
+				<a href="wf-about.html">About</a>
+				<a href="wf-login.html">Login</a>
+				<a href="wf-registration.html">Registration</a>
+				|
+				<a href="wf-main-user-fav.html">liu-fav</a>
+				<a href="wf-main-user-park.html">liu-park</a>
+				<a href="wf-picture.html">pic</a>
+				<a href="wf-picture.html">vid</a>
+			</div>
 		</div>
-
-		<div>
-			Create an account and you can save your favorite park(s) information.
-		</div>
-
-		<div>
-			<a href="wf-login.html">Login</a>
-			<a href="wf-registration.html">Registration</a>
-			<a href="wf-about.html">About</a>
-			<a href="wf-login-user-page.html">-</a>
-		</div>
-
 	</div>
 
 	<main>
@@ -99,6 +90,7 @@
 				There Are <em>4</em> Parks That Matches Your Search Criteria<br>
 				<em>StateCode = AL : Activity = All</em>
 			</h3>
+
 			<div class="group-container wrap">
 
 				<div class="item">
@@ -117,8 +109,8 @@
 						2680 Natchez Trace Parkway
 						Tupelo, MS 38804
 					</p>
-					<button class="btn-more-pic 0" type="button">More Picture</button>
-					<button class="btn-video 0" type="button">Video</button>
+					<button class="btn-generic 0" type="button">More Picture</button>
+					<button class="btn-generic 0" type="button">Video</button>
 				</div>
 
 				<div class="item">
@@ -137,8 +129,8 @@
 						3729 County Road 98
 						Bridgeport, AL 35740
 					</p>
-					<button class="btn-more-pic 1" type="button">More Picture</button>
-					<button class="btn-video 1" type="button">Video</button>
+					<button class="btn-generic 1" type="button">More Picture</button>
+					<button class="btn-generic 1" type="button">Video</button>
 				</div>
 
 				<div class="item">
@@ -158,8 +150,8 @@
 						7002 U.S. Highway 80 West
 						White Hall, AL 36040
 					</p>
-					<button class="btn-more-pic 2" type="button">More Picture</button>
-					<button class="btn-video 2" type="button">Video</button>
+					<button class="btn-generic 2" type="button">More Picture</button>
+					<button class="btn-generic 2" type="button">Video</button>
 				</div>
 				<div class="item">
 					<div class="park-info-title-container">
@@ -176,9 +168,8 @@
 						National Trails Office Regions 6|7|8
 						Santa Fe, NM 87505
 					</p>
-					<button class="btn-more-pic 3" type="button">Add to DB</button>
-					<button class="btn-more-pic 3" type="button">More Picture</button>
-					<button class="btn-video 3" type="button">Video</button>
+					<button class="btn-generic 3" type="button">More Picture</button>
+					<button class="btn-generic 3" type="button">Video</button>
 				</div>
 			</div>
 		</section>
@@ -197,7 +188,8 @@
 		});
 	</script>
 
-	<script src="index.js">	</script>
+	<script src="test.js">	</script>
+	<!-- <script src="index.js">	</script> -->
 
 </body>
 

@@ -7,8 +7,7 @@ function formatParkInfoQueryParams(params) {
 }
 
 
-function buildMorePictureElement(imagePtr)
-{
+function buildMorePictureElement(imagePtr) {
   let htmlCode = `
 		<div class="item">
 		<h4 class="overlay-title-container"> ${imagePtr.title}</h4>
@@ -22,8 +21,7 @@ function buildMorePictureElement(imagePtr)
 }
 
 
-function buildParkInfoItemElement(responseJson, idx)
-{
+function buildParkInfoItemElement(responseJson, idx) {
   let siteAddress = "";
 
   if (responseJson.data[idx].addresses.length === 0)
@@ -45,10 +43,10 @@ function buildParkInfoItemElement(responseJson, idx)
       <p>${responseJson.data[idx].description}</p>
       <p><b>WebLink</b> : <a href="${responseJson.data[idx].url}"> ${responseJson.data[idx].fullName}</a>
         <p><b>HQ Address</b> : ${siteAddress}</p>
-        <button class="btn-more-pic ${idx}" type="button">More Picture</button>
-        <button class="btn-video ${idx}" type="button">Video</button>
+        <button class="btn-generic ${idx}" type="button">More Picture</button>
+        <button class="btn-generic ${idx}" type="button">Video</button>
   </div>`;
-    
+
   return (htmlCode);
 }
 
@@ -267,7 +265,7 @@ function getItemIdFromElement(item) {
 }
 
 function handleMorePictureClicked() {
-  $('.cls-results').on('click', '.btn-more-pic', event => {
+  $('.cls-results').on('click', '.btn-generic', event => {
     const idx = getItemIdFromElement(event.currentTarget);
     // get the image from the store and ren
     let responseJson = NewData[idx].responseJson;
@@ -282,7 +280,7 @@ function handleGoBackButtonClicked() {
 }
 
 function handleVideoClicked() {
-  $('.cls-results').on('click', '.btn-video', event => {
+  $('.cls-results').on('click', '.btn-generic', event => {
     const idx = getItemIdFromElement(event.currentTarget);
     // get the park info from the big data
     let parkName = NewData[idx].responseJson.fullName;
@@ -311,6 +309,7 @@ function watchForm() {
 
 
 function StartApp() {
+
   const stateCode = "AL";
   const activities = "All";
   // const activities = "Bike";

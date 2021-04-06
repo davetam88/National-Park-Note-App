@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>National Park Finder</title>
+  <title>National Park Trip Planner</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
     type="text/css">
   <!-- <link href="index2.css" rel="stylesheet" type="text/css" /> -->
@@ -16,13 +16,14 @@
   <header class="bg-callout">
 
 
-    p<h1>National Park Finder</h1>
+    p<h1>National Park Trip Planner</h1>
     <div class='no-login'>
-      <h2 class="app-title"> All The Information You Need to Know About Your Favorite National Park in One Easy to Use
-        App, You Can Narrow Down Your Search by State And Activities
-      </h2>
-    </div>
 
+      <h2 class="app-title"> All The Information You Need to Know About Your Favorite National Park in One Easy to Use
+        App, Narrow Down Your Search by State And Activities; Plan your trip by creating your own user account.
+      </h2>
+
+    </div>
 
     <h3 class="filter-title">Please Enter Login Information</h3>
 
@@ -30,16 +31,15 @@
       <div class="center wrap">
         <div class="field-group">
 
-          <!-- main group -->
-
           <div>
-            <label for="username" class="label">
-              Username:</label>
-            <input type="text" required="" name="username" id="username" value="testuser1">
+            <label for="username" class="label"> Username:</label>
+            <input type="text" id="username" name="username" placeholder="Username" required="">
+            <!-- value="testuser1" -->
             <br>
 
             <label for="password" class="label">Password:</label>
-            <input type="password" id="password" required="" name="password" value="Password">
+            <input type="password" id="password" name="password" placeholder="Password" required="">
+            <!-- value="Password" -->
             <br>
 
             <div class="filter-button-section">
@@ -48,7 +48,7 @@
             </div>
           </div>
 
-          <div id="js-error-message" class="error-message">abcd</div>
+          <div id="js-error-message" class="error-message"></div>
         </div>
 
       </div>
@@ -56,106 +56,21 @@
   </header>
 
   <!-- login -->
-  <div class="nav-container">
-    <div>
-    </div>
-    <div>
-      Create an account and you can save your favorite park(s) information.
-    </div>
-    <div>
-      <a href="wf-registration.html">Registration</a>
+  <div class="nav-main-container">
+    <div class="nav-links">
+      <a href="wf-main.html">Home</a>
       <a href="wf-about.html">About</a>
+      <a href="wf-registration.html">Registration</a>
     </div>
   </div>
 
+
   <main>
     <section id="js-results" class="bg-main-display cls-results">
-      <h3 class="overlay-section-heading">
-        There Are <em>4</em> Parks That Matches Your Search Criteria<br>
-        <em>StateCode = AL : Activity = All</em>
-      </h3>
-      <div class="group-container wrap">
-
-        <div class="item">
-          <div class="park-info-title-container">
-            <h3>Natchez Trace Parkway</h3>
-          </div>
-          <img src="https://www.nps.gov/common/uploads/structured_data/3C80016C-1DD8-B71B-0B91B2FA75DF0C02.jpg"
-            alt="Natchez Trace Parkway">
-          <p>The Natchez Trace Parkway is a 444-mile recreational road and scenic drive through three states. It roughly
-            follows the "Old Natchez Trace" a historic travel corridor used by American Indians, "Kaintucks," European
-            settlers, slave traders, soldiers, and future presidents. Today, people can enjoy not only a scenic drive
-            but also hiking, biking, horseback riding, and camping along the parkway.</p>
-          <p><b>WebLink</b> : <a href="https://www.nps.gov/natr/index.htm"> Natchez Trace Parkway</a>
-          </p>
-          <p><b>HQ Address</b> :
-            2680 Natchez Trace Parkway
-            Tupelo, MS 38804
-          </p>
-          <button class="btn-more-pic 0" type="button">More Picture</button>
-          <button class="btn-video 0" type="button">Video</button>
-        </div>
-        <div class="item">
-          <div class="park-info-title-container">
-            <h3>Russell Cave National Monument</h3>
-          </div>
-          <img src="https://www.nps.gov/common/uploads/structured_data/3C8726D8-1DD8-B71B-0BD90F30D72A98BF.jpg"
-            alt="Russell Cave National Monument">
-          <p>Russell Cave is an archeological site with one of the most complete records of prehistoric cultures in the
-            Southeast. In the 1950s, archeologists uncovered a large quantity of artifacts representing over 10,000
-            years of use in a single place. Today, Russell Cave National Monument helps bring to light many cultural
-            developments of phenomenal human journeys.</p>
-          <p><b>WebLink</b> : <a href="https://www.nps.gov/ruca/index.htm"> Russell Cave National Monument</a>
-          </p>
-          <p><b>HQ Address</b> :
-            3729 County Road 98
-            Bridgeport, AL 35740
-          </p>
-          <button class="btn-more-pic 1" type="button">More Picture</button>
-          <button class="btn-video 1" type="button">Video</button>
-        </div>
-        <div class="item">
-          <div class="park-info-title-container">
-            <h3>Selma To Montgomery National Historic Trail</h3>
-          </div>
-          <img src="https://www.nps.gov/common/uploads/structured_data/3C878A7E-1DD8-B71B-0B5F97E4D222FACF.jpg"
-            alt="Selma To Montgomery National Historic Trail">
-          <p>‏‏‎Established by Congress in 1966, the Selma to Montgomery National Historic Trail commemorates the
-            people, events, and route of the 1965 Voting Rights March in Alabama. Led by Dr. Martin Luther King Jr.,
-            Black and White non-violent supporters fought for the right to vote in Central Alabama. Today, you can
-            connect with this history and trace the events of these marches along the 54-mile trail. ‏</p>
-          <p><b>WebLink</b> : <a href="https://www.nps.gov/semo/index.htm"> Selma To Montgomery National Historic
-              Trail</a>
-          </p>
-          <p><b>HQ Address</b> :
-            7002 U.S. Highway 80 West
-            White Hall, AL 36040
-          </p>
-          <button class="btn-more-pic 2" type="button">More Picture</button>
-          <button class="btn-video 2" type="button">Video</button>
-        </div>
-        <div class="item">
-          <div class="park-info-title-container">
-            <h3>Trail Of Tears National Historic Trail</h3>
-          </div>
-          <img src="https://www.nps.gov/common/uploads/structured_data/3C7E670B-1DD8-B71B-0B25C5CD76BF4A04.jpg"
-            alt="Trail Of Tears National Historic Trail">
-          <p>Remember and commemorate the survival of the Cherokee people, forcefully removed from their homelands in
-            Georgia, Alabama, and Tennessee to live in Indian Territory, now Oklahoma. They traveled by foot, horse,
-            wagon, or steamboat in 1838-1839.</p>
-          <p><b>WebLink</b> : <a href="https://www.nps.gov/trte/index.htm"> Trail Of Tears National Historic Trail</a>
-          </p>
-          <p><b>HQ Address</b> :
-            National Trails Office Regions 6|7|8
-            Santa Fe, NM 87505
-          </p>
-          <button class="btn-more-pic 3" type="button">Add to DB</button>
-          <button class="btn-more-pic 3" type="button">More Picture</button>
-          <button class="btn-video 3" type="button">Video</button>
-        </div>
+      <div class="about-page-containter">
+        <div id="about-page-content"></div>
       </div>
     </section>
-
   </main>
 
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -167,11 +82,11 @@
     {
       $("#state-options-file").load("state.html");
       $("#activities-options-file").load("activities.html");
+      $("#about-page-content").load("wf-about-content.html");
     });
   </script>
 
-  <script src="index.js">	</script>
-
+  <!-- <script src="index.js">	</script> -->
 
 
 </body>
