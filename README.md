@@ -1,7 +1,5 @@
-# National Park Trip Planner
-
-Wireframe and user flow diagram branch.
-
+# National Park Trip Planner 
+** Wireframe and user flow diagram branch **
 
 All the information you need to know about your favorite National Parks in the United States in one easy to use APP. You can narrow down your search by State and Activities. Once your park(s) are located, you can see more pictures and/or Youtube videos for a particular park. Enjoy !
 
@@ -21,34 +19,13 @@ The APP's inspiration came from my love of nature and the outdoors, and the unsp
 ## APP Features - Screenshots
 
 
-Closeup of Feature # 1 
+User Flow Diagram
 
-![close-up-1](images/close-up-filter.jpg)
+![close-up-1](images/user-flow.jpg)
 
-Closeup of Feature # 2 
-
-![close-up-2](images/close-up-more-pic.jpg)
-
-Overall look of the Startup Page
-
-![Start UP Page](images/startup-page.jpg)
-
-Startup Page With Activities Selection Filter
+Startup Page
 
 ![Start UP Page with Activities Filter](images/startup-page-activity-option.jpg)
-
-Resulting Page when 'Biking' is the chosen activity
-
-![Bike Page](images/startup-page-bike.jpg)
-
-Resulting Page when the 'More Picture' button is selected
-
-![More Picture Page](images/more-pic.jpg)
-
-Resulting Page when the 'Video' button is selected
-
-![Video](images/video-page.jpg)
-
 
 ## Built With
 
@@ -64,7 +41,7 @@ Resulting Page when the 'Video' button is selected
 
 - [Live Demo Link](https://davetam88.github.io/National-Park-Finder-Assignment/)
 
-- [GitHub Code Link](https://github.com/davetam88/National-Park-Finder-Assignment/)
+- [GitHub Code Link](https://github.com/davetam88/National-Park-Trip-Planner/tree/wireframe-and-user-flow-diagram)
 
 - [User-Flow Diagram](images/user-flow.jpg)
 
