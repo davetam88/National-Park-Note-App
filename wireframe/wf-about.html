@@ -8,7 +8,7 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
 		type="text/css">
 	<!-- <link href="index2.css" rel="stylesheet" type="text/css" /> -->
-	<link href="index.css" rel="stylesheet" type="text/css">
+	<link href="../App.css" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -19,7 +19,8 @@
 
 		<div class='no-login'>
 			<h2 class="app-title"> All The Information You Need to Know About Your Favorite National Park in One Easy to Use
-				App, Narrow Down Your Search by State And Activities; Plan your trip by creating your own user account.
+				App, Narrow Down Your Search by State And Activities; Plan your trip by creating your own <a
+					href="wf-registration.html" style="color:white">user account</a>
 			</h2>
 		</div>
 
@@ -98,8 +99,8 @@
 	<script>
 		$(function ()
 		{
-			$("#state-options-file").load("state.html");
-			$("#activities-options-file").load("activities.html");
+			$("#state-options-file").load("../state.html");
+			$("#activities-options-file").load("../activities.html");
 			$("#about-page-content").load("wf-about-content.html");
 		});
 	</script>

@@ -42,7 +42,7 @@ Resulting Page when the 'More Picture' button is selected
 
 ![More Picture Page](images/more-pic.jpg)
 
-Resulting Page when the 'Video' button is selected
+### Resulting Page when the 'Video' button is selected
 
 ![Video](images/video-page.jpg)
 
