@@ -1,3 +1,4 @@
+
 # National Park Trip Planner 
 
 All the information you need to know about your favorite National Parks in the United States in one easy to use APP. You can narrow down your search by State and Activities. Once your park(s) are located, you can see more pictures and/or Youtube videos for a particular park. Enjoy !
@@ -20,31 +21,32 @@ The APP's inspiration came from my love of nature and the outdoors, and the unsp
 
 Closeup of Feature # 1 
 
-![close-up-1](images/close-up-filter.jpg)
+
+![close-up-1](src/images/readme/close-up-filter.jpg)
 
 Closeup of Feature # 2 
 
-![close-up-2](images/close-up-more-pic.jpg)
+![close-up-2](src/images/readme/close-up-more-pic.jpg)
 
 Overall look of the Startup Page
 
-![Start UP Page](images/startup-page.jpg)
+![Start UP Page](src/images/readme/startup-page.jpg)
 
 Startup Page With Activities Selection Filter
 
-![Start UP Page with Activities Filter](images/startup-page-activity-option.jpg)
+![Start UP Page with Activities Filter](src/images/readme/startup-page-activity-option.jpg)
 
 Resulting Page when 'Biking' is the chosen activity
 
-![Bike Page](images/startup-page-bike.jpg)
+![Bike Page](src/images/readme/startup-page-bike.jpg)
 
 Resulting Page when the 'More Picture' button is selected
 
-![More Picture Page](images/more-pic.jpg)
+![More Picture Page](src/images/readme/more-pic.jpg)
 
 ### Resulting Page when the 'Video' button is selected
 
-![Video](images/video-page.jpg)
+![Video](src/images/readme/video-page.jpg)
 
 
 ## Built With
@@ -65,7 +67,7 @@ Resulting Page when the 'More Picture' button is selected
 
 - [GitHub Code Link - branch - wireframe](https://github.com/davetam88/National-Park-Trip-Planner/tree/wireframe-and-user-flow-diagram)
 
-- [User-Flow Diagram](images/user-flow.jpg)
+- [User-Flow Diagram](src/images/readme/user-flow.jpg)
 
 
 

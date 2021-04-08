@@ -125,9 +125,12 @@ header {
   background-color: lightblue;
   border: 0px solid red;
   background-size: 100% 100%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(images/mountains5.jpg);
+  /* background-image: url(images/mountains5.jpg); */
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.10)), url(images/mountains5.jpg);
   background-size: cover;
 }
+
+/* background: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(images/mountains5.jpg); */
 
 header h1 {
   color: #ffffff;
