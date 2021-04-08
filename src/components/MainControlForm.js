@@ -30,7 +30,7 @@ class MainControlForm extends Component {
     this.setState({ state: { value: state } }, () => {
     });
   }
-
+  2
   handleSubmit = (e) => {
     e.preventDefault();
     const { activity, state } = this.state;

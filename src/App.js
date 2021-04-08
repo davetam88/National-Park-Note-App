@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import MainContext from './MainContext';
+import NavBar from "./components/NavBar";
 import MainControl from "./components/MainControl";
 import "./App.css";
 
@@ -51,6 +52,7 @@ class App extends Component {
           <header className="bg-callout">
             <Route path="/" component={MainControl} />
           </header>
+          <Route path="/" component={NavBar} />
           <main>
           </main>
         </MainContext.Provider>

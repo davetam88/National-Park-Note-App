@@ -56,8 +56,13 @@ em {
   text-align: right;
 }
 
-.nav-container a:link {
-  color: black;
+.nav-links a:not(:last-of-type) {
+  margin-right: 10px;
+  border: 0px solid green;
+}
+
+.nav-links a:hover {
+  text-decoration: solid;
 }
 
 .nav-main-container {
@@ -201,7 +206,7 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
-  /***  height: 200px; */
+  /**  height: 200px; */
   border: 0px solid green;
 }
 
