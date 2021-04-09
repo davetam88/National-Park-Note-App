@@ -21,13 +21,27 @@ class NavBar extends Component {
             <a href="wf-pictures.html">pic</a>
             <a href="wf-videos.html">vid</a>
             <br />
-            <a href="wf-main.html">Home</a>
+
+            {/* <a href="wf-main.html">Home</a> */}
+
             <Link to='/'>
-              Home1
+              Home
             </Link>
-            <a href="wf-about.html">About</a>
-            <a href="wf-login.html">Login</a>
-            <a href="wf-registration.html">Registration</a>
+
+            {/* <a href="wf-about.html">About</a> */}
+            <Link to='/about'>
+              About
+            </Link>
+
+
+            <Link to='/login'>
+              Login
+            </Link>
+
+            <Link to='/registration'>
+              Registration
+            </Link>
+
           </div>
         </div>
       </div>

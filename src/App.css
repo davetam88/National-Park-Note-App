@@ -176,7 +176,7 @@ section h3 {
 
 /*** input box stuff */
 
-label {
+.main-label {
   display: inline-block;
   min-width: 200px;
   background: #DDD;

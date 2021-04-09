@@ -1,45 +1,34 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import MainContext from './MainContext';
-import NavBar from "./components/NavBar";
 import MainControl from "./components/MainControl";
+import LoginPage from './components/LoginPage';
+import RegistrationPage from './components/RegistrationPage';
+import MainControlForm from './components/MainControlForm';
 import "./App.css";
+import AboutPage from './components/AboutPage';
 
 class App extends Component {
   state = {
     activity: "",
-    state: "",
+    stateName: "",
     folders: [],
-    // notes: [],
+    logInState: false,
   };
 
-  addNote = note => {
-    this.setState({
-      notes: [...this.state.notes, note],
-    })
-  }
+  MainControlFormCB = (activity, stateName) => {
 
-  addFolder = folder => {
     this.setState({
-      folders: [...this.state.folders, folder],
-    })
-  }
-
-  MainControlFormCB = (activity, state) => {
-    this.setState({
-      state: state,
+      stateName: stateName,
       activity: activity,
     })
   }
 
   render() {
-
     const contextValue = {
+      state: this.state.stateName,
       activity: this.state.activity,
       MainControlFormCB: this.MainControlFormCB,
-      // folders: this.state.folders,
-      // notes: this.state.notes,
-      // addFolder: this.addFolder,
       // addNote: this.addNote,
       // deleteNote: this.deleteNote,
     }
@@ -47,12 +36,10 @@ class App extends Component {
     return (
       <div className="container">
         <MainContext.Provider value={contextValue}>
-          {/* connect state to context using value */}
-          {/* <Context.Provider value={this.state}> */}
-          <header className="bg-callout">
-            <Route path="/" component={MainControl} />
-          </header>
-          <Route path="/" component={NavBar} />
+          <Route exact path="/" component={MainControl} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/registration" component={RegistrationPage} />
           <main>
           </main>
         </MainContext.Provider>
@@ -60,6 +47,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;

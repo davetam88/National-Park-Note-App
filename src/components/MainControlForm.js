@@ -13,28 +13,29 @@ class MainControlForm extends Component {
     super(props);
     this.state = {
       activity: {
-        value: "all",
+        value: "All",
       },
-      state: {
-        value: "Alabama",
+      stateName: {
+        value: "AL",
       },
     };
   }
 
+  // event handler (selection)
   updateActivity(activity) {
     this.setState({ activity: { value: activity } }, () => {
     });
   }
 
-  updateState(state) {
-    this.setState({ state: { value: state } }, () => {
+  updateState(stateName) {
+    this.setState({ stateName: { value: stateName } }, () => {
     });
   }
-  2
+
   handleSubmit = (e) => {
     e.preventDefault();
-    const { activity, state } = this.state;
-    this.context.MainControlFormCB(activity, state);
+    const { activity, stateName } = this.state;
+    this.context.MainControlFormCB(activity, stateName);
   }
 
   render() {
@@ -49,7 +50,7 @@ class MainControlForm extends Component {
           <div className="center wrap">
             <div className="field-group">
               <div className="field">
-                <label htmlFor="js-state-name"> State Name </label>
+                <label htmlFor="js-state-name" className="main-label"> State Name </label>
                 <select className="itemRight field-qty-num" id="js-state-name"
                   onChange={(e) => this.updateState(e.target.value)}
                 >
@@ -58,7 +59,7 @@ class MainControlForm extends Component {
               </div>
 
               <div className="field">
-                <label htmlFor="js-activities"> Activities</label>
+                <label htmlFor="js-activities" className="main-label"> Activities</label>
                 <select className="itemRight field-qty-num" id="js-activities"
                   onChange={(e) => this.updateActivity(e.target.value)}
                 >

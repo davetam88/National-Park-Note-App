@@ -65,3 +65,9 @@
   background-color: #29862e;
   color: white;
 }
+
+.FavPark-label {
+  display: inline-block;
+  min-width: 200px;
+  /* background: #DDD; */
+}
