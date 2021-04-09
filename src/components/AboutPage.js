@@ -14,6 +14,7 @@ class AboutPage extends Component {
     return (
       <>
         <MainControl />
+        <NavBar />
         <AboutContent />
       </>
     )

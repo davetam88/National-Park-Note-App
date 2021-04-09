@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import '../App.css'
+import '../App.css'
 import './FavForm.css'
 
 class LoginPage extends Component {
@@ -29,15 +29,14 @@ class LoginPage extends Component {
               <br />
 
               <div id="js-error-message" class="error-message"></div>
-              <div class="filter-button-section">
-                <div class="FavPark-form-buttons-wrapper">
-                  <a href="wf-main.html">
-                    <button type="submit">Submit</button>
-                  </a>
-                  <a href="wf-main.html">
-                    <button type="button">Cancel</button>
-                  </a>
-                </div>
+              {/* <div class="filter-button-section"> */}
+              <div class="FavPark-form-buttons-wrapper">
+                <a href="wf-main.html">
+                  <button type="submit">Submit</button>
+                </a>
+                <a href="wf-main.html">
+                  <button type="button">Cancel</button>
+                </a>
               </div>
             </form>
           </div>

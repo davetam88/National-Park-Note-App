@@ -5,7 +5,8 @@ const MainContext = React.createContext({
   // notes: [],
   error: null,
   MainControlFormCB: () => { },
-
+  RegistrationCB: () => { },
+  
   // addFolder: () => { },
   // deleteNote: () => { },
 
