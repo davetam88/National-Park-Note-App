@@ -4,8 +4,6 @@ import MainContext from './MainContext';
 import HomePage from "./components/HomePage";
 import LoginPage from './components/LoginPage';
 import RegistrationPage from './components/RegistrationPage';
-// import MainControl from "./components/MainControl";
-// import MainControlForm from './components/MainControlForm';
 import STORE from './STORE'
 import "./App.css";
 import AboutPage from './components/AboutPage';
@@ -13,17 +11,17 @@ import AboutPage from './components/AboutPage';
 class App extends Component {
   state = {
     store: STORE,
-    activity: "",
-    stateName: "",
+    activity: "All",
+    stateCode: "AL",
     username: "",
     password: "",
     logInState: false,
   };
 
-  MainControlFormCB = (activity, stateName) => {
+  MainControlFormCB = (activity, stateCode) => {
 
     this.setState({
-      stateName: stateName,
+      stateCode: stateCode,
       activity: activity,
     })
   }
@@ -42,7 +40,7 @@ class App extends Component {
 
     const contextValue = {
       store: STORE,
-      stateName: this.state.stateName,
+      stateCode: this.state.stateCode,
       activity: this.state.activity,
       username: this.state.username,
       password: this.state.password,

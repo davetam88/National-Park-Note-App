@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import ParkItem from "./ParkItem";
+import MainContext from '../MainContext';
 import '../App.css'
 
 class ParkList extends Component {
+  static contextType = MainContext;
   constructor(props) {
     super(props);
 
     this.state = {
-      stateCode: "AL",
-      activities: "All",
+      // stateCode: "AL",
+      // activity: "All",
       responseJson: {},
       NewData: {},
       EntryData: {},
@@ -30,7 +32,7 @@ class ParkList extends Component {
 
   handleGoBackButtonClicked() {
     // $('.cls-results').on('click', '.btn-go-back', event => {
-    //   displayParksInfo(EntryData.ResponseJson, EntryData.stateCode, EntryData.activities);
+    //   displayParksInfo(EntryData.ResponseJson, EntryData.stateCode, EntryData.activity);
     // });
   }
 
@@ -53,13 +55,12 @@ class ParkList extends Component {
   }
 
   componentDidMount() {
-    const { stateCode, activities } = this.state;
-    this.getParkInfos(stateCode, activities, 1);
+    const { stateCode, activity } = this.context;
+    this.getParkInfos(stateCode, activity, 2);
   }
 
-  getParkInfos(stateCode, activities, maxResults = 4) {
+  getParkInfos(stateCode, activity, maxResults = 4) {
     const { responseJson } = this.state;
-
     // ok key
     const api_key = 'nC3wQoBberQTpH9oGy9RZd3WPZRbbUw3eTCblSCb';
 
@@ -71,11 +72,11 @@ class ParkList extends Component {
     const paramsNormal = {
       api_key: api_key,
       stateCode: stateCode,
-      q: activities,
+      q: activity,
       limit: maxResults
     };
 
-    const paramsAllActivities = {
+    const paramsAllActivity = {
       api_key: api_key,
       stateCode: stateCode,
       limit: maxResults
@@ -83,9 +84,9 @@ class ParkList extends Component {
 
 
     let paramsUse = paramsNormal;
-    if (activities === "All")
+    if (activity === "All")
     {
-      paramsUse = paramsAllActivities;
+      paramsUse = paramsAllActivity;
     }
 
     const queryString = this.formatParkInfoQueryParams(paramsNormal);
@@ -106,106 +107,19 @@ class ParkList extends Component {
         this.setState({
           responseJson
         })
-        // displayParksInfo(responseJson, stateCode, activities)
+        // displayParksInfo(responseJson, stateCode, activity)
       })
       .catch(err => {
         let errmsg = `Something went wrong: ${err.message}`;
-        alert(errmsg);
+        // alert(errmsg);
         // $('#js-error-message').text(`Something went wrong: ${err.message}`);
       });
   }
 
 
-  buildParkInfoItemElement(responseJson, idx) {
-
-    let siteAddress = "";
-
-    if (responseJson.data[idx].addresses.length === 0)
-      siteAddress = 'No Address Information For This Park, Sorry';
-    else
-    {
-      siteAddress = `
-	  ${responseJson.data[idx].addresses[0].line1}
-	  ${responseJson.data[idx].addresses[0].city},  ${responseJson.data[idx].addresses[0].stateCode} ${responseJson.data[idx].addresses[0].postalCode} 
-	  `;
-    }
-    let fullName = responseJson.data[idx].fullName;
-    let htmlCode = `
-  <div class="item">
-    <div class="park-info-title-container">
-      <h3>${responseJson.data[idx].fullName}</h3>
-    </div>
-    <img src="${responseJson.data[idx].images[0].url}" alt="${fullName}">
-      <p>${responseJson.data[idx].description}</p>
-      <p><b>WebLink</b> : <a href="${responseJson.data[idx].url}"> ${responseJson.data[idx].fullName}</a>
-        <p><b>HQ Address</b> : ${siteAddress}</p>
-        <button class="btn-more-pic ${idx}" type="button">More Picture</button>
-        <button class="btn-video ${idx}" type="button">Video</button>
-  </div>`;
-
-    return (htmlCode);
-  }
-
-
-
-  displayParksInfo(stateCode, activities) {
-    // return (<p>junk</p>)
-    let abc = "abc";
-    // return (<p>junk{abc}</p>)
-
-
-    const { NewData, EntryData, responseJson } = this.state;
-    // debugger
-    const dataLen = responseJson.data.length;
-    // if there are previous results, remove them
-    // $('#js-results').empty();
-    // // remove previous error if any.
-    // $('#js-error-message').text("");
-
-    return (
-      <h3 class="overlay-section-heading">
-
-        There Are <em>{dataLen}</em> Parks That Matches Your Search Criteria<br />
-        <em>StateCode = ${stateCode}  :  Activity = ${activities}</em>
-      </h3>
-    )
-
-
-
-    let htmlCode = `
-	  <h3 class="overlay-section-heading">
-        There Are <em>${dataLen}</em> Parks That Matches Your Search Criteria<br>
-          <em>StateCode = ${stateCode}  :  Activity = ${activities}</em>
-</h3>
-        <div class="group-container wrap">
-          `;
-
-    for (let idx = 0; idx < dataLen; idx++)
-    {
-
-      htmlCode = htmlCode + this.buildParkInfoItemElement(responseJson, idx);
-      //  showNpsData(responseJson, i);
-      NewData[idx] = new Object();
-      NewData[idx].index = idx;
-      NewData[idx].responseJson = responseJson.data[idx];
-    }
-    EntryData.stateCode = stateCode;
-    EntryData.activities = activities;
-    EntryData.ResponseJson = responseJson;
-
-    // close the group-container div
-    // page for park info
-    htmlCode += `</div>`;
-
-    return (htmlCode);
-
-    // $('#js-results').append(htmlCode);
-    // $('#js-results').removeClass('hidden');
-  }
-
   render() {
-
-    const { stateCode, activities, responseJson } = this.state;
+    const { responseJson } = this.state;
+    const { stateCode, activity } = this.context;
 
 
     if (Object.keys(responseJson).length === 0)
@@ -216,12 +130,24 @@ class ParkList extends Component {
       )
     }
 
+
+    const dataLen = responseJson.data.length;
+
     return (
       <>
-        <p>Component ParkList</p>
-        {this.displayParksInfo(stateCode, activities)}
-        <ParkItem />
 
+        <h3 class="overlay-section-heading">
+          There Are <em>{dataLen}</em> Parks That Matches Your Search Criteria<br />
+          <em>StateCode = {stateCode}  :  Activity = {activity}</em>
+        </h3>
+        <div class="group-container wrap">
+          {
+            responseJson.data.map((element, idx) => (
+              <ParkItem key={idx} itemData={element} />
+            ))
+          }
+        </div>
+        {/* {this.displayParksInfo(stateCode, activity)} */}
       </>
     );
   }

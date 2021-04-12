@@ -15,7 +15,7 @@ class MainControlForm extends Component {
       activity: {
         value: "All",
       },
-      stateName: {
+      stateCode: {
         value: "AL",
       },
     };
@@ -27,15 +27,15 @@ class MainControlForm extends Component {
     });
   }
 
-  updateState(stateName) {
-    this.setState({ stateName: { value: stateName } }, () => {
+  updateState(stateCode) {
+    this.setState({ stateCode: { value: stateCode } }, () => {
     });
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { activity, stateName } = this.state;
-    this.context.MainControlFormCB(activity, stateName);
+    const { activity, stateCode } = this.state;
+    this.context.MainControlFormCB(activity, stateCode);
   }
 
   render() {

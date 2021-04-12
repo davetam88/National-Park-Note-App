@@ -13,7 +13,11 @@ class HomePage extends Component {
       <>
         <MainControl />
         <NavBar />
-        <ParkList />
+        <main>
+          <section id="js-results" class="bg-main-display cls-results">
+            <ParkList />
+          </section>
+        </main>
       </>
     );
   }
