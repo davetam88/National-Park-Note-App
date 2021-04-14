@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import MainContext from '../MainContext';
 import '../App.css'
 import MainControl from './MainControl';
-import ParkList from './ParkList';
 import NavBar from "./NavBar";
+import PictureList from './PictureList';
 
-class HomePage extends Component {
+class PicturePage extends Component {
 
   static contextType = MainContext;
 
@@ -16,14 +16,13 @@ class HomePage extends Component {
 
   render() {
 
-
     return (
       <>
         <MainControl props="this.props" />
         <NavBar />
         <main>
           <section id="js-results" className="bg-main-display cls-results">
-            <ParkList />
+            <PictureList />
           </section>
         </main>
       </>
@@ -31,8 +30,5 @@ class HomePage extends Component {
   }
 }
 
-HomePage.propTypes = {
-};
-
-export default HomePage;
+export default PicturePage;
 

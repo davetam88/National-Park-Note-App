@@ -114,13 +114,13 @@ em {
   background-color: #517414;
   -webkit-appearance: media-sliderthumb;
   padding: 6px;
-  color: white;
+  color: black;
   font-weight: 500;
   border-radius: 4px;
   /* other */
   border: 1px solid #999999;
-  background-color: #c0c0c0;
-  color: #666666;
+  background-color: rgb(175, 7, 175);
+  color: white;
 }
 
 /*** header */
@@ -233,11 +233,15 @@ select {
 button {
   cursor: pointer;
 }
-
 input {
   cursor: pointer;
 }
-
+label {
+background-color:grey;
+padding: 3px;
+border-radius: 4px;
+font-weight: 400;
+}
 /*** main and section  */
 
 main {

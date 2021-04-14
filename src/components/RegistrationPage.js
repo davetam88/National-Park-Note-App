@@ -15,7 +15,13 @@ class RegistrationPage extends Component {
     super(props);
 
     this.state = {
-      username1: "",
+      // username1: "",
+
+      currentUser: {
+        id: "",
+        username: "",
+        password: "",
+      },
 
       username: {
         value: "",
@@ -58,25 +64,49 @@ class RegistrationPage extends Component {
 
 
   handleSubmit = (e) => {
-    const { users } = this.context.store;
+
     e.preventDefault();
-    const { entryError, username, password1, password2 } = this.state;
+    const { entryError, currrenUser, username, password1, password2 } = this.state;
+
+
+    if (username.value === "")
+    {
+      alert("Username is Required");
+      return
+    }
+
+    if (password1.value === "")
+    {
+      alert("Password is Required");
+      return
+    }
+
+    if (password2.value === "")
+    {
+      alert("Confirm Password is Required");
+      return
+    }
+
 
     if (password1.value === password2.value)
     {
       const password = password1;
       let usernametaken = false;
-      users.forEach(list => {
+      this.context.users.forEach(list => {
         if (list.username === username.value)
         {
-          alert("Username taken, please try other.");
+          alert("Username Already Taken, Please Try Other.");
           usernametaken = true;
         }
       })
       if (!usernametaken)
       {
-        alert("Thank You for Registering, we will bring you to your user page now.");
+        alert("Thank You For Registering, We Will Bring You to Your User Page Now.");
+
         this.context.RegistrationCB(username, password);
+        // this.context.usernamex = username;
+        // this.context.password = password;
+
         this.props.history.push("/");
       }
       // post to api
@@ -125,9 +155,8 @@ class RegistrationPage extends Component {
 
             <div class="filter-button-section">
               <div class="FavPark-form-buttons-wrapper">
-                <a href="wf-main.html">
-                  <button type="submit">Submit</button>
-                </a>
+
+                <button type="submit">Submit</button>
 
                 <button type='button' onClick={this.handleCancel}>
                   Cancel</button>

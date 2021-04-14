@@ -15,16 +15,18 @@ class NavBar extends Component {
   // <button className="nav-myFav-btn" disabled>My Favorite Park</button>
   // <button className="nav-myFav-btn" disabled>My Favorite Park</button>
 
-  renderFavControl() {
-    // const currentTab = this.props.tabs[this.state.currentTabIndex]
 
+
+  renderFavControl() {
     return (
 
       <div className="nav-myFav-container">
 
         <div className="filter-button-section">
           <a href="wf-main-user-fav.html">
-            <button className="nav-myFav-btn">My Favorite Park</button></a>
+            <button className="nav-myFav-btn"
+
+            >My Favorite Park</button></a>
         </div>
 
         <div id="activities-options-file">
@@ -77,18 +79,19 @@ class NavBar extends Component {
             {/* 
             <Link to='/'>
               logout
-            </Link>
+            </Link> 
  */}
           </div>
         </div>
 
 
-        {this.renderFavControl()}
+        {(this.context.logInState)
+          ?
+          this.renderFavControl()
+          : <></>
+        }
+
       </div>
-
-
-
-
 
     )
   }

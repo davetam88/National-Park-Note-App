@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import MainContext from '../MainContext';
 import '../App.css'
+import HomeNav from './HomeNav';
 import MainControlForm from './MainControlForm';
 import NavBar from "./NavBar";
 import PropTypes from 'prop-types';
@@ -19,6 +20,7 @@ class MainControl extends Component {
     return (
       <>
         <header className="bg-callout">
+          {/* <HomeNav /> */}
           <h1>National Park Trip Planner</h1>
           <div className='no-login'>
             <h2 className="app-title"> All The Information You Need to Know About Your Favorite National Park in One Easy to Use
@@ -29,7 +31,7 @@ class MainControl extends Component {
                   User Account
                 </span>
               </Link>
-              
+
             </h2>
           </div>
           <MainControlForm />

@@ -9,11 +9,13 @@ class AboutPage extends Component {
     super(props);
     this.state = {}
   }
+
   render() {
+    const { history } = this.props;
 
     return (
       <>
-        <MainControl />
+        <MainControl history={history} />
         <NavBar />
         <AboutContent />
       </>

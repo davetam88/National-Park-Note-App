@@ -2,18 +2,20 @@ import React from 'react'
 // import STORE from './STORE'
 
 const MainContext = React.createContext({
-  folders: [],
-  // notes: [],
-  // store: STORE,
+  history: {},
+  responseJson: {},
+  users: [],
   error: null,
+  stateCode: "",
+  activity: "",
   username: "",
   password: "",
   logInState: false,
+  displayFavPage: "",
+
   MainControlFormCB: () => { },
   RegistrationCB: () => { },
-
-  // addFolder: () => { },
-  // deleteNote: () => { },
+  LoginCB: () => { },
 
 })
 

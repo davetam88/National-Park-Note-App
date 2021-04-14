@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import ParkItem from "./ParkItem";
+import PictureItem from "./PictureItem";
 import MainContext from '../MainContext';
 import '../App.css'
 
-class ParkList extends Component {
+class PictureList extends Component {
   static contextType = MainContext;
-
   constructor(props) {
     super(props);
 
@@ -19,12 +18,8 @@ class ParkList extends Component {
     }
   }
 
-  costChanged = (cost) => {
-  }
-
-
-
   /*** display  */
+
   handleMorePictureClicked() {
 
     // $('.cls-results').on('click', '.btn-more-pic', event => {
@@ -52,11 +47,16 @@ class ParkList extends Component {
     // });
   }
 
+  // componentDidMount() {
+  //   const { stateCode, activity } = this.state;
+  //   this.fetchParkInfos(stateCode, activity);
+  //   this.state.firstFetch = true;
+  // }
+
 
   render() {
     const { responseJson } = this.context;
     const { formChange, stateCode, activity } = this.context;
-
 
     if (Object.keys(responseJson).length === 0)
     {
@@ -72,13 +72,13 @@ class ParkList extends Component {
       <>
 
         <h3 className="overlay-section-heading">
-          There Are <em>{dataLen}</em> Parks That Matches Your Search Criteria<br />
+          There Are <em>{dataLen}</em> Pictures That Matches Your Search Criteria<br />
           <em>StateCode = {stateCode}  :  Activity = {activity}</em>
         </h3>
         <div className="group-container wrap">
           {
             responseJson.data.map((element, idx) => (
-              <ParkItem key={idx} itemData={element} />
+              <PictureItem key={idx} itemData={element} />
             ))
           }
         </div>
@@ -88,4 +88,4 @@ class ParkList extends Component {
   }
 }
 
-export default ParkList;
+export default PictureList;

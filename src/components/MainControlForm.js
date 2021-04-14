@@ -6,40 +6,55 @@ import config from '../config';
 import PropTypes from 'prop-types';
 import States from '../States.js';
 import Activities from '../Activities';
+import { withRouter } from 'react-router-dom';
 
 class MainControlForm extends Component {
   static contextType = MainContext;
   constructor(props) {
     super(props);
     this.state = {
-      activity: {
-        value: "All",
-      },
-      stateCode: {
-        value: "AL",
-      },
+      activity: "",
+      stateCode: "",
     };
   }
 
+  static defaultProps = {
+    history: {
+      push: () => { },
+    },
+  };
+
   // event handler (selection)
   updateActivity(activity) {
-    this.setState({ activity: { value: activity } }, () => {
-    });
+    this.state.activity = activity;
+
+    // this.setState({ activity: activity }, () => {
+    // });
   }
 
   updateState(stateCode) {
-    this.setState({ stateCode: { value: stateCode } }, () => {
-    });
+    this.state.stateCode = stateCode;
+    // this.setState({ stateCode: stateCode }, () => {
+    // });
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
     const { activity, stateCode } = this.state;
+
     this.context.MainControlFormCB(activity, stateCode);
+    this.props.history.push('/')
+
   }
 
+
   render() {
-    const { folders = [] } = this.context;
+
+    const { activity, stateCode } = this.context;
+    this.state.activity = activity;
+    this.state.stateCode = stateCode;
+
+
 
     return (
       <>
@@ -82,7 +97,7 @@ class MainControlForm extends Component {
   }
 }
 
-export default MainControlForm;
+export default withRouter(MainControlForm);
 
 
 

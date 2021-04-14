@@ -1,14 +1,15 @@
-const STORE = {
+export default {
+  //const STORE = {
   users: [
     {
       id: '1',
       username: 'user1',
-      passowrd: 'pass1'
+      password: '11'
     },
     {
       id: '2',
       username: 'user2',
-      passowrd: 'pass2'
+      password: '22'
     },
   ],
   parks: {
@@ -28,4 +29,4 @@ const STORE = {
   },
 }
 
-module.exports = { STORE }
+//module.exports = { STORE }
