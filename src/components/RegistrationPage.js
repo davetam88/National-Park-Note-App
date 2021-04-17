@@ -92,7 +92,9 @@ class RegistrationPage extends Component {
     {
       const password = password1;
       let usernametaken = false;
+      let idx = 0;
       this.context.users.forEach(list => {
+        idx++;
         if (list.username === username.value)
         {
           alert("Username Already Taken, Please Try Other.");
@@ -103,7 +105,7 @@ class RegistrationPage extends Component {
       {
         alert("Thank You For Registering, We Will Bring You to Your User Page Now.");
 
-        this.context.RegistrationCB(username, password);
+        this.context.RegistrationCB(username, password, idx);
         // this.context.usernamex = username;
         // this.context.password = password;
 
@@ -151,7 +153,7 @@ class RegistrationPage extends Component {
               required="" />
             <br />
 
-            <div id="js-error-message" class="error-message"></div>
+            <div class="error-message-login"></div>
 
             <div class="filter-button-section">
               <div class="FavPark-form-buttons-wrapper">

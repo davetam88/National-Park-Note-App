@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import '../App.css'
 import MainContext from '../MainContext';
 import CommonControl from './CommonControl';
-import ParkList from './ParkList';
+import FavParkList from './FavParkList';
 
-class HomePage extends Component {
+
+class FavParkPage extends Component {
   static contextType = MainContext;
-
   constructor(props) {
     super(props);
+    this.state = {}
   }
-
   render() {
     const { logInState, displayFavPage, username } = this.context;
-
     return (
       <>
         <CommonControl
@@ -23,13 +22,12 @@ class HomePage extends Component {
         />
         <main>
           <section id="js-results" className="bg-main-display cls-results">
-            <ParkList />
+            <FavParkList />
           </section>
         </main>
       </>
-    );
+    )
   }
 }
 
-export default HomePage;
-
+export default FavParkPage;

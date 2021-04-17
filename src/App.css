@@ -34,9 +34,15 @@ a:hover {
   display: none;
 }
 
-.error-message {
+.error-message-main {
   font-size: 1.5rem;
   color: white;
+}
+
+.error-message-login {
+  padding-top: 1rem;
+  font-size: 1.2rem;
+  color: lime;
 }
 
 em {
@@ -72,11 +78,15 @@ em {
 
 /*** nav bar - my fav controls */
 
-.nav-myFav-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  padding-bottom: 5px;
+.nav-myFav-radio-btn-container {
+  border: 0px solid green;
+}
+
+.nav-myFav-radio-btn-container label {
+  display: inline-block;
+  min-width: 200px;
+  background: #DDD;
+  opacity: 0.7;
 }
 
 .nav-myFav-btn {
@@ -123,6 +133,14 @@ em {
   color: #666666;
 }
 
+/* nav bar username */
+
+.username {
+  font-size: 1.2rem;
+  color: darkgreen;
+  padding-left: 8px;
+}
+
 /*** header */
 
 header {
@@ -155,7 +173,8 @@ header h2 {
 
 .filter-title {
   color: #ffffff;
-  margin: 10px 0;
+  margin: 20px 4%;
+  /* margin: 10px 0; */
   font-size: 25px;
   border: 0px solid green;
 }
@@ -206,8 +225,11 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
-  /**  height: 200px; */
   border: 0px solid green;
+}
+
+.wrap {
+  flex-wrap: wrap;
 }
 
 #submit {
@@ -260,6 +282,32 @@ main h2 {
   border: 0px solid green;
 }
 
+/*** about page */
+
+.about-content-container {
+  margin: 8px 4%;
+  font-size: .5rem;
+  border: 0px solid green;
+}
+
+.about-content-container h1 {
+  /* color: #ffffff; */
+  text-align: center;
+  margin: 0px;
+  padding: 35px 0 15px;
+  font-size: 2rem;
+  color: green;
+}
+
+.about-content-container p {
+  /* color: #ffffff; */
+  /* text-align: center; */
+  margin: 0px;
+  padding: 35px 0 15px;
+  font-size: 1.5rem;
+  color: black;
+}
+
 /*** heading for main, more pic and videos */
 
 .create-account-msg {
@@ -292,10 +340,6 @@ main h2 {
   /***padding: 10px; */
   justify-content: space-evenly;
   display: flex;
-}
-
-.wrap {
-  flex-wrap: wrap;
 }
 
 .btn-generic {

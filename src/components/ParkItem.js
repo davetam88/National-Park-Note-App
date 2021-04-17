@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
+import MainContext from '../MainContext';
 import '../App.css'
 
 class ParkItem extends Component {
+  static contextType = MainContext;
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      counter: 0,
+    }
   }
 
 
   renderButtons() {
-    if (this.context.logInState) return (
-      <>
-        <button className="btn-generic {idx}" type="button">Modify</button>
-        <button className="btn-generic {idx}" type="button"> Delete</button>
-      </>
-    )
+    if (this.context.logInState)
+    {
+      return (
+        <>
+          <button className="btn-generic {idx}" type="button">Modify</button>
+          <button className="btn-generic {idx}" type="button"> Delete</button>
+        </>
+      )
+    }
   }
 
 

@@ -18,19 +18,23 @@
     <h1>National Park Trip Planner</h1>
 
     <div class='no-login'>
+
       <h2 class="app-title"> All The Information You Need to Know About Your Favorite National Park in One Easy to Use
-        App, Narrow Down Your Search by State And Activities; Plan your trip by creating your own <a
-          href="wf-registration.html" style="color:white">user account</a>
+        App, Narrow Down Your Search by State And Activities.
       </h2>
     </div>
 
-    <h3 class="filter-title"> Select your Filter Please</h3>
+
+    <h3 class="filter-title"> Please Select your Filter
+      or
+      <a href="wf-main-user-fav.html" style="color:white">Go to My Favorite Parks Page</a>
+    </h3>
     <!-- login in user -->
 
     <form class="cls-form" id="js-form">
       <div class="center wrap">
-        <div class="field-group">
 
+        <div class="field-group">
           <div class="field">
             <div id="state-options-file">
               <label for="js-state-name" class="main-label"> State Name </label>
@@ -65,10 +69,11 @@
             <input type="submit" id="submit" value="Submit">
           </div>
 
-          <div id="js-error-message" class="error-message">
+          <div id="js-error-message-main" class="error-message-main">
             <p>
             </p>
           </div>
+
         </div>
       </div>
     </form>
@@ -81,26 +86,13 @@
       <a href=" wf-main.html">Home</a>
       <a href=" wf-about.html">About</a>
       <a href=" wf-main.html">Logout</a>
+      <span class="username">
+        user1
+      </span>
     </div>
 
     <div class="nav-myFav-container">
 
-      <div class="filter-button-section">
-        <a href="wf-main-user-fav.html">
-          <button class="nav-myFav-btn">My Favorite Park</button></a>
-        <!-- <button class="nav-myFav-btn" disabled>My Favorite Park</button> -->
-      </div>
-
-      <div id="activities-options-file">
-        <label for="id-order-by">Order by</label>
-        <select class="itemRight field-qty-num" id="id-order-by">
-          <option value="Park Name">Park Name</option>
-          <option value="Stop Number">Stop Number</option>
-          <option value="Rating">Rating</option>
-          <option value="State">State</option>
-          <option value="Activity">Activity</option>
-        </select>
-      </div>
     </div>
 
   </div>

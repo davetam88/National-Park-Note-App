@@ -15,8 +15,11 @@ class AboutPage extends Component {
 
     return (
       <>
-        <MainControl history={history} />
-        <NavBar />
+        <MainControl />
+        <NavBar
+          username={this.context.username}
+          logInState={this.context.logInState}
+        />
         <AboutContent />
       </>
     )

@@ -13,8 +13,7 @@ class LoginPage extends Component {
     this.state = {
       username: "",
       password: "",
-      entryError: null,
-
+      errorMsg: "",
     };
   }
 
@@ -25,7 +24,9 @@ class LoginPage extends Component {
   };
 
   updateUsername(username) {
-    this.setState({ username: username }, () => {
+    this.setState({
+      username: username,
+      errorMsg: "",
     });
   }
 
@@ -38,48 +39,53 @@ class LoginPage extends Component {
     this.props.history.push('/')
   };
 
-
   handleSubmit = (e) => {
     const { users } = this.context;
-    const { username, password } = this.state;
+    const { username, password, errorMsg } = this.state;
 
 
     e.preventDefault();
 
     if (username === "")
     {
-      alert("Username is Required");
-      return
+      this.setState({
+        errorMsg: 'Username is Required',
+      })
     }
 
     if (password === "")
     {
-      alert("Password is Required");
-      return
+      this.setState({
+        errorMsg: 'Password is Required',
+      })
     }
 
     let passwordMatch = 0;
     for (let idx = 0; idx < users.length; idx++)
     {
       if (users[idx].username === username)
+      {
         if (users[idx].password === password)
         {
           passwordMatch = 1;
           break;
-        } else
-        {
-          alert("Password is Not Matching, Please Try Again");
         }
+      }
     }
     if (passwordMatch)
     {
-
       this.context.LoginCB(username, password);
       this.props.history.push("/");
+    } else
+    {
+      this.setState({
+        errorMsg: 'Invalid Password, Please Try Again',
+      })
     }
   }
 
   render() {
+    const { username, password, errorMsg } = this.state;
 
     return (
       <>
@@ -105,9 +111,9 @@ class LoginPage extends Component {
                 required="" />
 
               <br />
+              <div class="error-message-login">{errorMsg}</div>
+              <br />
 
-              <div id="js-error-message" class="error-message"></div>
-              {/* <div class="filter-button-section"> */}
               <div class="FavPark-form-buttons-wrapper">
                 <button type="submit">Submit</button>
 

@@ -4,6 +4,7 @@ import MainContext from './MainContext';
 import HomePage from "./components/HomePage";
 import PicturePage from "./components/PicturePage";
 import AboutPage from './components/AboutPage';
+import FavParkPage from './components/FavParkPage';
 import LoginPage from './components/LoginPage';
 import RegistrationPage from './components/RegistrationPage';
 import STORE from './STORE'
@@ -19,35 +20,35 @@ class App extends Component {
     stateCode: "AL",
     username: "",
     password: "",
-    logInState: true,
+    logInState: false,
+    // logInState: true,
+    fetchErrMsg: "",
     displayFavPage: false,
   };
-
 
   MainControlFormCB = (activity, stateCode) => {
     this.fetchParkInfos(stateCode, activity, 20);
     // this.state.activity = activity;
-    // this.state.stateCode = stateCode;
-    this.setState({
-      stateCode: stateCode,
-      activity: activity,
-    })
   }
 
 
-  RegistrationCB = (username, password) => {
+
+  RegistrationCB = (username, password, idx) => {
 
     let currentUser = {
-      id: '3',
+      // id: idx,
+      id: "3",
       username: username.value,
       password: password.value,
     }
+
 
     this.setState({
       users: [
         ...this.state.users,
         currentUser
       ],
+      username: username.value,
       logInState: true,
     })
 
@@ -66,6 +67,12 @@ class App extends Component {
   }
 
 
+  LogoutCB = () => {
+    this.setState({
+      logInState: false
+    })
+  }
+
   componentDidMount() {
     const { stateCode, activity } = this.state;
     this.fetchParkInfos(stateCode, activity, 20);
@@ -81,6 +88,7 @@ class App extends Component {
   }
 
   fetchParkInfos(stateCode, activity, maxResults = 4) {
+    this.state.fetchErrMsg = "";
 
     const { responseJson } = this.state;
     // ok key
@@ -133,8 +141,7 @@ class App extends Component {
       })
       .catch(err => {
         let errmsg = `Something went wrong: ${err.message}`;
-        // alert(errmsg);
-        // $('#js-error-message').text(`Something went wrong: ${err.message}`);
+        alert(errmsg);
       });
   }
 
@@ -150,13 +157,14 @@ class App extends Component {
       username: this.state.username,
       password: this.state.password,
       logInState: this.state.logInState,
+      fetchErrMsg: this.state.fetchErrMsg,
 
       displayFavPage: this.state.displayFavPage,
 
       MainControlFormCB: this.MainControlFormCB,
       RegistrationCB: this.RegistrationCB,
       LoginCB: this.LoginCB,
-
+      logoutCB: this.logoutCB,
     }
 
 
@@ -172,7 +180,20 @@ class App extends Component {
 
           <Route path="/login" component={LoginPage} />
 
+          <Route path="/favpark" component={FavParkPage} />
+
+          < Route
+            path="/logout"
+            render={routeProps => {
+              this.state.logInState = false;
+              routeProps.history.push('/');
+              return null;
+            }}
+          />
+
           <Route path="/registration" component={RegistrationPage} />
+
+          {/* todo - add page not found page */}
 
         </MainContext.Provider>
       </div >

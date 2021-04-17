@@ -12,47 +12,37 @@ class NavBar extends Component {
     }
   }
 
-  // <button className="nav-myFav-btn" disabled>My Favorite Park</button>
-  // <button className="nav-myFav-btn" disabled>My Favorite Park</button>
+  renderLoginLinks(logInState, username) {
+    if (!logInState)
+    {
+      return (
+        <>
+          <Link to='/login'>
+            Login
+            </Link>
 
-
-
-  renderFavControl() {
-    return (
-
-      <div className="nav-myFav-container">
-
-        <div className="filter-button-section">
-          <a href="wf-main-user-fav.html">
-            <button className="nav-myFav-btn"
-
-            >My Favorite Park</button></a>
-        </div>
-
-        <div id="activities-options-file">
-          <label htmlFor="id-order-by">Order by</label>
-          <select className="itemRight field-qty-num" id="id-order-by">
-            <option value="Park Name">Park Name</option>
-            <option value="Stop Number">Stop Number</option>
-            <option value="Rating">Rating</option>
-            <option value="State">State</option>
-            <option value="Activity">Activity</option>
-          </select>
-        </div>
-      </div>
-    )
+          <Link to='/registration'>
+            Registration
+            </Link>
+        </>
+      )
+    } else
+    {
+      return (
+        <>
+          <Link to='/logout'>
+            Logout
+          </Link>
+          <span class="username">
+            {username}
+          </span>
+        </>
+      )
+    }
   }
 
-
   render() {
-    const { logInState } = this.context;
-    // logInState
-
-    let styles = {
-      'a:link': 'color: white',
-      'marginLeft': '8px',
-      'color': 'limegreen',
-    };
+    const { logInState, username } = this.context;
 
     return (
       <div className="nav-main-container">
@@ -63,33 +53,12 @@ class NavBar extends Component {
               Home
             </Link>
 
-            {/* <a href="wf-about.html">About</a> */}
             <Link to='/about'>
               About
             </Link>
-
-            <Link to='/login'>
-              Login
-            </Link>
-
-            <Link to='/registration'>
-              Registration
-            </Link>
-
-            {/* 
-            <Link to='/'>
-              logout
-            </Link> 
- */}
+            {this.renderLoginLinks(logInState, username)}
           </div>
         </div>
-
-
-        {(this.context.logInState)
-          ?
-          this.renderFavControl()
-          : <></>
-        }
 
       </div>
 

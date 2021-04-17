@@ -19,59 +19,36 @@
 
     <div class='no-login'>
       <h2 class="app-title"> All The Information You Need to Know About Your Favorite National Park in One Easy to Use
-        App, Narrow Down Your Search by State And Activities; Plan your trip by creating your own <a
-          href="wf-registration.html" style="color:white">user account</a>
+        App, Narrow Down Your Search by State And Activities.
       </h2>
     </div>
 
-    <h3 class="filter-title"> Select your Filter Please</h3>
-    <!-- login in user -->
+    <h3 class="filter-title"> Sort Your Favorite Parks by The Filters Below or
+      <a href="wf-main.html" style="color:white">Search for More Parks</a>
+    </h3>
 
-    <form class="cls-form" id="js-form">
-      <div class="center wrap">
-        <div class="field-group">
+    <br>
 
-          <div class="field">
-            <div id="state-options-file">
-              <label for="js-state-name" class="main-label"> State Name </label>
-              <select class="itemRight field-qty-num" id="js-state-name">
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="WA">Washington</option>
-                <option value="WV">West Virginia</option>
-                <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
-              </select>
-            </div>
-          </div>
+    <div class="nav-myFav-radio-btn-container">
 
-          <div class="field">
-            <div id="activities-options-file">
-              <label for="id_field_states" class="main-label"> Activities</label>
-              <select class="itemRight field-qty-num" id="js-activities">
-                <option value="All">-- All Activities --</option>
-                <option value="Biking">Biking</option>
-                <option value="Birdwatching">Birdwatching</option>
-                <option value="Boating">Boating</option>
-                <option value="Camping">Camping</option>
-                <option value="Winter Sports">Winter Sports</option>
-              </select>
-            </div>
-          </div>
-          <div class="filter-button-section">
-            <button type="reset" id="reset">Reset</button>
-            <input type="submit" id="submit" value="Submit">
-          </div>
+      <div>
+        <input type="radio" id="stopnumber" name="orderby" value="StopNumber">
+        <label for="StopNumber">Stop Number</label>
+      </div><br>
+      <div>
+        <input type="radio" id="rating" name="orderby" value="rating">
+        <label for="rating">Rating</label>
+      </div><br>
+      <div>
+        <input type="radio" id="state" name="orderby" value="state">
+        <label for="State">State</label>
+      </div><br>
+      <div>
+        <input type="radio" id="activity" name="orderby" value="activity">
+        <label for="Activity">Activity</label>
+      </div><br>
+    </div>
 
-          <div id="js-error-message" class="error-message">
-            <p>
-            </p>
-          </div>
-        </div>
-      </div>
-    </form>
   </header>
 
   <!-- login user page -->
@@ -83,24 +60,7 @@
       <a href=" wf-main.html">Logout</a>
     </div>
 
-    <div class="nav-myFav-container">
 
-      <div class="filter-button-section">
-        <!-- <button class="nav-myFav-btn">My Favorite Park</button> -->
-        <button class="nav-myFav-btn" disabled>My Favorite Park</button>
-      </div>
-
-      <div id="activities-options-file">
-        <label for="id-order-by">Order by</label>
-        <select class="itemRight field-qty-num" id="id-order-by">
-          <option value="Park Name">Park Name</option>
-          <option value="Stop Number">Stop Number</option>
-          <option value="Rating">Rating</option>
-          <option value="State">State</option>
-          <option value="Activity">Activity</option>
-        </select>
-      </div>
-    </div>
   </div>
 
   <main>

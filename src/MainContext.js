@@ -11,6 +11,7 @@ const MainContext = React.createContext({
   username: "",
   password: "",
   logInState: false,
+  fetchErrMsg: "",
   displayFavPage: "",
 
   MainControlFormCB: () => { },

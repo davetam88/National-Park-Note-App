@@ -11,6 +11,12 @@ export default {
       username: 'user2',
       password: '22'
     },
+    {
+      id: '3',
+      username: 'demo',
+      password: 'pwdemo'
+    },
+
   ],
   parks: {
     'a': { id: 'a', title: 'First card', content: 'lorem ipsum' },

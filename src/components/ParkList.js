@@ -5,7 +5,6 @@ import '../App.css'
 
 class ParkList extends Component {
   static contextType = MainContext;
-
   constructor(props) {
     super(props);
 
@@ -18,10 +17,6 @@ class ParkList extends Component {
       EntryData: {},
     }
   }
-
-  costChanged = (cost) => {
-  }
-
 
 
   /*** display  */
@@ -71,7 +66,7 @@ class ParkList extends Component {
     return (
       <>
 
-        <h3 className="overlay-section-heading">
+        <h3 className="overlay-section-heading" a>
           There Are <em>{dataLen}</em> Parks That Matches Your Search Criteria<br />
           <em>StateCode = {stateCode}  :  Activity = {activity}</em>
         </h3>
