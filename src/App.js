@@ -16,14 +16,19 @@ class App extends Component {
     history: {},
     responseJson: {},
     users: STORE.users,
+    parks: STORE.parks,
     activity: "All",
     stateCode: "AL",
     username: "",
     password: "",
-    logInState: false,
-    // logInState: true,
+
+    // todo << remove true after
+    // logInState: false,
+    logInState: true,
+    savedPark: false,
     fetchErrMsg: "",
     displayFavPage: false,
+
   };
 
   MainControlFormCB = (activity, stateCode) => {
@@ -32,14 +37,13 @@ class App extends Component {
   }
 
 
-
   RegistrationCB = (username, password, idx) => {
 
     let currentUser = {
       // id: idx,
       id: "3",
-      username: username.value,
-      password: password.value,
+      username: username,
+      password: password,
     }
 
 
@@ -48,7 +52,7 @@ class App extends Component {
         ...this.state.users,
         currentUser
       ],
-      username: username.value,
+      username: username,
       logInState: true,
     })
 
@@ -67,9 +71,9 @@ class App extends Component {
   }
 
 
-  LogoutCB = () => {
+  SaveParkCB = () => {
     this.setState({
-      logInState: false
+
     })
   }
 
@@ -78,8 +82,8 @@ class App extends Component {
     this.fetchParkInfos(stateCode, activity, 20);
   }
 
-
   /*** fetch data */
+
   formatParkInfoQueryParams(params) {
 
     const queryItems = Object.keys(params)
@@ -135,6 +139,8 @@ class App extends Component {
       .then(responseJson => {
         // this.state.responseJson = responseJson;
         this.setState({
+	    activity: activity,
+	    stateCode: stateCode,
           responseJson: responseJson
         })
         // displayParksInfo(responseJson, stateCode, activity)
@@ -164,8 +170,10 @@ class App extends Component {
       MainControlFormCB: this.MainControlFormCB,
       RegistrationCB: this.RegistrationCB,
       LoginCB: this.LoginCB,
-      logoutCB: this.logoutCB,
+      SaveParkCB: this.SaveParkCB,
+
     }
+
 
 
     return (
@@ -185,7 +193,9 @@ class App extends Component {
           < Route
             path="/logout"
             render={routeProps => {
-              this.state.logInState = false;
+              this.setState({
+                logInState: false
+              })
               routeProps.history.push('/');
               return null;
             }}
