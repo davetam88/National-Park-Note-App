@@ -3,7 +3,6 @@ import MainContext from '../MainContext';
 import '../App.css'
 import './FavForm.css'
 
-
 class LoginPage extends Component {
   static contextType = MainContext;
 
@@ -31,8 +30,10 @@ class LoginPage extends Component {
   }
 
   updatePassword(password) {
-    this.setState({ password: password }, () => {
-    });
+    this.setState({
+      password: password,
+      errorMsg: "",
+    })
   }
 
   handleCancel = () => {
@@ -51,6 +52,7 @@ class LoginPage extends Component {
       this.setState({
         errorMsg: 'Username is Required',
       })
+      return;
     }
 
     if (password === "")
@@ -58,6 +60,7 @@ class LoginPage extends Component {
       this.setState({
         errorMsg: 'Password is Required',
       })
+      return;
     }
 
     let passwordMatch = 0;
@@ -81,6 +84,7 @@ class LoginPage extends Component {
       this.setState({
         errorMsg: 'Invalid Password, Please Try Again',
       })
+      return;
     }
   }
 
@@ -90,31 +94,31 @@ class LoginPage extends Component {
     return (
       <>
         <main>
-
-          <div class="FavPark-form-container">
-            <form class="FavPark-form"
+          <div className="FavPark-form-container">
+            <form className="FavPark-form"
               onSubmit={this.handleSubmit}
             >
               <h2>
                 Please Enter Login Information
         </h2>
 
-              <label for="username" class="FavPark-label"> Username:</label>
+              <label htmlFor="username" className="FavPark-label"> Username:</label>
               <input type="text" id="username" name="username" placeholder="Username"
                 onChange={(e) => this.updateUsername(e.target.value)}
                 required="" />
               <br />
 
-              <label for="password" class="label">Password:</label>
+
+              <label htmlFor="password" className="label">Password:</label>
               <input type="password" id="password" name="password" placeholder="Password"
                 onChange={(e) => this.updatePassword(e.target.value)}
                 required="" />
 
               <br />
-              <div class="error-message-login">{errorMsg}</div>
+              <div className="error-message-login">{errorMsg}</div>
               <br />
 
-              <div class="FavPark-form-buttons-wrapper">
+              <div className="FavPark-form-buttons-wrapper">
                 <button type="submit">Submit</button>
 
                 <button type='button' onClick={this.handleCancel}>

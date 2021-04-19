@@ -9,6 +9,7 @@
     type="text/css">
   <!-- <link href="index2.css" rel="stylesheet" type="text/css" /> -->
   <link href="../src/App.css" rel="stylesheet" type="text/css">
+  <script src="{% static 'network/functions.js' %}"></script>
 </head>
 
 
@@ -18,23 +19,19 @@
     <h1>National Park Trip Planner</h1>
 
     <div class='no-login'>
-
       <h2 class="app-title"> All The Information You Need to Know About Your Favorite National Park in One Easy to Use
-        App, Narrow Down Your Search by State And Activities.
+        App, Narrow Down Your Search by State And Activities; Plan your trip by creating your own <a
+          href="wf-registration.html" style="color:white">user account</a>
       </h2>
     </div>
 
-
-    <h3 class="filter-title"> Please Select your Filter
-      or
-      <a href="wf-main-user-fav.html" style="color:white">Go to My Favorite Parks Page</a>
-    </h3>
+    <h3 class="filter-title"> Select your Filter Please</h3>
     <!-- login in user -->
 
     <form class="cls-form" id="js-form">
       <div class="center wrap">
-
         <div class="field-group">
+
           <div class="field">
             <div id="state-options-file">
               <label for="js-state-name" class="main-label"> State Name </label>
@@ -69,30 +66,21 @@
             <input type="submit" id="submit" value="Submit">
           </div>
 
-          <div id="js-error-message-main" class="error-message-main">
+          <div id="js-error-message" class="error-message">
             <p>
             </p>
           </div>
-
         </div>
       </div>
     </form>
   </header>
 
-  <!-- login user page -->
 
   <div class="nav-main-container">
     <div class="nav-links">
       <a href=" wf-main.html">Home</a>
       <a href=" wf-about.html">About</a>
       <a href=" wf-main.html">Logout</a>
-      <span class="username">
-        user1
-      </span>
-    </div>
-
-    <div class="nav-myFav-container">
-
     </div>
 
   </div>
@@ -127,9 +115,10 @@
           <a href="wf-videos.html">
             <button class="btn-generic 0" type="button">Video</button></a>
           <a href="wf-form.html">
-            <button class="btn-generic 1" type="button">Save</button>
+            <button class="btn-generic-save" type="button">Save</button>
           </a>
         </div>
+
 
         <div class="item">
           <div class="park-info-title-container">
@@ -151,8 +140,8 @@
             <button class="btn-generic 1" type="button">More Picture</button></a>
           <a href="wf-videos.html">
             <button class="btn-generic 1" type="button">Video</button></a>
-          <button class="btn-generic" type="button">Modify</button>
-          <button class="btn-generic" type="button">Delete</button>
+          <button class="btn-generic-mod" type="button">Modify</button>
+          <button class="btn-generic-del" type="button">Delete</button>
         </div>
 
         <div class="item">
@@ -177,7 +166,8 @@
           <a href="wf-videos.html">
             <button class="btn-generic 2" type="button">Video</button></a>
           <a href="wf-form.html">
-            <button class="btn-generic 2" type="button">Save</button></a>
+            <button class="btn-generic-save" type="button">Save</button>
+          </a>
         </div>
 
         <div class="item">
@@ -200,7 +190,8 @@
           <a href="wf-videos.html">
             <button class="btn-generic" type="button">Video</button></a>
           <a href="wf-form.html">
-            <button class="btn-generic" type="button">Save</button></a>
+            <button class="btn-generic-save" type="button">Save</button>
+          </a>
         </div>
       </div>
     </section>

@@ -17,12 +17,14 @@ class App extends Component {
     responseJson: {},
     users: STORE.users,
     parks: STORE.parks,
+    stateOptions: STORE.stateOptions,
+    activityOptions: STORE.activityOptions,
+
     activity: "All",
     stateCode: "AL",
     username: "",
     password: "",
 
-    // todo << remove true after
     // logInState: false,
     logInState: true,
     savedPark: false,
@@ -31,7 +33,19 @@ class App extends Component {
 
   };
 
-  MainControlFormCB = (activity, stateCode) => {
+  ActivityCB = (activity) => {
+    // this.state.activity = activity;
+    this.setState({ activity })
+  }
+
+  StateCodeCB = (stateCode) => {
+    // this.state.stateCode = stateCode;
+    this.setState({ stateCode })
+  }
+
+
+  MainControlFormCB = () => {
+    const { stateCode, activity } = this.state;
     this.fetchParkInfos(stateCode, activity, 20);
     // this.state.activity = activity;
   }
@@ -70,7 +84,6 @@ class App extends Component {
     // store information to database
   }
 
-
   SaveParkCB = () => {
     this.setState({
 
@@ -79,6 +92,7 @@ class App extends Component {
 
   componentDidMount() {
     const { stateCode, activity } = this.state;
+
     this.fetchParkInfos(stateCode, activity, 20);
   }
 
@@ -139,8 +153,8 @@ class App extends Component {
       .then(responseJson => {
         // this.state.responseJson = responseJson;
         this.setState({
-	    activity: activity,
-	    stateCode: stateCode,
+          activity: activity,
+          stateCode: stateCode,
           responseJson: responseJson
         })
         // displayParksInfo(responseJson, stateCode, activity)
@@ -158,6 +172,8 @@ class App extends Component {
       history: this.props.history,
       responseJson: this.state.responseJson,
       users: this.state.users,
+      stateOptions: this.state.stateOptions,
+      activityOptions: this.state.activityOptions,
       stateCode: this.state.stateCode,
       activity: this.state.activity,
       username: this.state.username,
@@ -171,7 +187,8 @@ class App extends Component {
       RegistrationCB: this.RegistrationCB,
       LoginCB: this.LoginCB,
       SaveParkCB: this.SaveParkCB,
-
+      ActivityCB: this.ActivityCB,
+      StateCodeCB: this.StateCodeCB,
     }
 
 

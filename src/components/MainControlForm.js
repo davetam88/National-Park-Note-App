@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import MainContext from '../MainContext';
-// import ValidationError from '../App/ValidationError';
-// import AddNoteError from './AddNoteError';
 import { Link } from 'react-router-dom'
 import config from '../config';
 import PropTypes from 'prop-types';
-import States from '../States.js';
-import Activities from '../Activities';
+// import States from '../States.js';
+// import Activities from '../Activities';
 import { withRouter } from 'react-router-dom';
+
 
 class MainControlForm extends Component {
   static contextType = MainContext;
   constructor(props) {
     super(props);
     this.state = {
-      activity: "",
-      stateCode: "",
+      // stateCode: "",
+      // activity: "",
     };
   }
 
@@ -25,30 +24,31 @@ class MainControlForm extends Component {
     },
   };
 
-  // event handler (selection)
+
+  handleChange(e) {
+    console.log("-----------Fruit Selected!!");
+    this.setState({ fruit: e });
+  }
+
+
+
+  updateState(xx) {
+
+    // stateCode
+    // this.context.StateCodeCB(stateCode)
+  }
+
   updateActivity(activity) {
-    this.state.activity = activity;
-
-    // this.setState({ activity: activity }, () => {
-    // });
+    // not use 
   }
 
-  updateState(stateCode) {
-    this.state.stateCode = stateCode;
-    // this.setState({ stateCode: stateCode }, () => {
-    // });
-  }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { activity, stateCode } = this.state;
 
-    this.context.MainControlFormCB(activity, stateCode);
+    this.context.MainControlFormCB();
     this.props.history.push('/')
-
   }
-
-
 
   renderGoFavLink() {
     let styles = {
@@ -76,14 +76,8 @@ class MainControlForm extends Component {
   }
 
 
-
-
   render() {
-
-    const { activity, stateCode } = this.context;
-    this.state.activity = activity;
-    this.state.stateCode = stateCode;
-
+    const { ActivityCB, StateCodeCB, activity, stateCode, stateOptions, activityOptions } = this.context;
 
     return (
       <>
@@ -96,23 +90,36 @@ class MainControlForm extends Component {
         >
           <div className="center wrap">
             <div className="field-group">
+
+              {/* state */}
               <div className="field">
-                <label htmlFor="js-state-name" className="main-label"> State Name </label>
-                <select className="itemRight field-qty-num" id="js-state-name"
-                  onChange={(e) => this.updateState(e.target.value)}
+                <div className="select-container">
+                  <label htmlFor="js-activities" className="main-label"> State Name</label>
+                  <select value={stateCode}
+                    className="itemRight field-qty-num"
+                    onChange={(e) => StateCodeCB(e.target.value)}
+                  >
+                    {stateOptions.map((option, idx) => (
+
+                      <option key={idx} value={option.value}>{option.label}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* activity */}
+              <div className="field">
+                <label htmlFor="js-activities" className="main-label"> Activities</label>
+                <select value={activity}
+                  className="itemRight field-qty-num"
+                  onChange={(e) => ActivityCB(e.target.value)}
                 >
-                  <States />
+                  {activityOptions.map((option, idx) => (
+                    <option key={idx} value={option.value}>{option.label}</option>
+                  ))}
                 </select>
               </div>
 
-              <div className="field">
-                <label htmlFor="js-activities" className="main-label"> Activities</label>
-                <select className="itemRight field-qty-num" id="js-activities"
-                  onChange={(e) => this.updateActivity(e.target.value)}
-                >
-                  <Activities />
-                </select>
-              </div>
 
               <div className="filter-button-section">
                 <button type="reset" id="reset">Reset</button>
@@ -129,6 +136,7 @@ class MainControlForm extends Component {
   }
 }
 
+// export default MainControlForm;
 export default withRouter(MainControlForm);
 
 

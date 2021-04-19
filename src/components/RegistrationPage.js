@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import MainContext from '../MainContext';
 import '../App.css'
@@ -13,26 +14,11 @@ class RegistrationPage extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
-      // username1: "",
-
-      currentUser: {
-        id: "",
-        username: "",
-        password: "",
-      },
-
-      username: {
-        value: "",
-      },
-      password1: {
-        value: "",
-      },
-      password2: {
-        value: "",
-      },
-      entryError: null,
+      username: "",
+      password1: "",
+      password2: "",
+      errorMsg: "",
     }
   }
 
@@ -42,19 +28,27 @@ class RegistrationPage extends Component {
     },
   };
 
+
   updateUsername(username) {
-    this.setState({ username: { value: username } }, () => {
-    });
+    this.setState({
+      username: username,
+      errorMsg: "",
+    })
+
   }
 
   updatePassword1(password1) {
-    this.setState({ password1: { value: password1 } }, () => {
-    });
+    this.setState({
+      password1: password1,
+      errorMsg: "",
+    })
   }
 
   updatePassword2(password2) {
-    this.setState({ password2: { value: password2 } }, () => {
-    });
+    this.setState({
+      password2: password2,
+      errorMsg: "",
+    })
   }
 
   handleCancel = () => {
@@ -62,48 +56,53 @@ class RegistrationPage extends Component {
   };
 
 
-
   handleSubmit = (e) => {
 
     e.preventDefault();
-    const { entryError, currrenUser, username, password1, password2 } = this.state;
+    const { username, password1, password2 } = this.state;
 
-
-    if (username.value === "")
+    if (username === "")
     {
-      alert("Username is Required");
-      return
+      this.setState({
+        errorMsg: "Username is Required",
+      })
+      return;
     }
 
-    if (password1.value === "")
+    if (password1 === "")
     {
-      alert("Password is Required");
-      return
+      this.setState({
+        errorMsg: "Password is Required",
+      })
+      return;
     }
 
-    if (password2.value === "")
+    if (password2 === "")
     {
-      alert("Confirm Password is Required");
-      return
+      this.setState({
+        errorMsg: "Confirm Password is Required",
+      })
+      return;
     }
 
-
-    if (password1.value === password2.value)
+    if (password1 === password2)
     {
       const password = password1;
       let usernametaken = false;
       let idx = 0;
       this.context.users.forEach(list => {
         idx++;
-        if (list.username === username.value)
+        if (list.username === username)
         {
-          alert("Username Already Taken, Please Try Other.");
+          this.setState({
+            errorMsg: "Username Already Taken, Please Try Other.",
+          })
           usernametaken = true;
+          return;
         }
       })
       if (!usernametaken)
       {
-        alert("Thank You For Registering, We Will Bring You to Your User Page Now.");
 
         this.context.RegistrationCB(username, password, idx);
         // this.context.usernamex = username;
@@ -114,13 +113,16 @@ class RegistrationPage extends Component {
       // post to api
     } else
     {
-      alert("Password And Re-type Password Do No Match, Please Try Again")
+      this.setState({
+        errorMsg: "Password And Re-type Password Do No Match, Please Try Again",
+      })
+      return;
     }
   }
 
 
   render() {
-    // const { folders = [] } = this.context;
+    const { errorMsg } = this.state;
 
     return (
       <main>
@@ -153,7 +155,10 @@ class RegistrationPage extends Component {
               required="" />
             <br />
 
-            <div class="error-message-login"></div>
+            <br />
+            <div class="error-message-login">{errorMsg}</div>
+            <br />
+
 
             <div class="filter-button-section">
               <div class="FavPark-form-buttons-wrapper">

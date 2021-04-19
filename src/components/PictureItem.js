@@ -63,6 +63,7 @@ class PictureItem extends Component {
 
 }
 
+// export default PictureItem;
 export default PictureItem;
 
 

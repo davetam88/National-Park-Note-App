@@ -7,29 +7,54 @@ class ParkItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 0,
+
     }
   }
+
+
+
+  // buttons can be save, modify
+  handleFavButtons = (buttonName) => {
+    // this.props.history.push('/')
+  };
 
 
   renderButtons() {
+
     if (this.context.logInState)
     {
-      return (
-        <>
-          <button className="btn-generic {idx}" type="button">Modify</button>
-          <button className="btn-generic {idx}" type="button"> Delete</button>
-        </>
-      )
+      if (this.context.savedPark)
+      {
+        return (
+          <>
+            <button className="btn-generic-mod " type="button"
+              onClick={() => this.handleFavButtons('modify')}
+            >Modify</button>
+            <button className="btn-generic-del " type="button"
+              onClick={() => this.handleFavButtons('delete')}
+            > Delete</button>
+          </>
+        )
+      } else
+      {
+        return (
+          <>
+            <button className="btn-generic-save" type="button"
+              onClick={() => this.handleFavButtons('save')}
+            > Save</button>
+            <button className="btn-generic-del " type="button"
+              onClick={() => this.handleFavButtons('delete')}
+            > Delete</button>
+          </>
+        )
+      }
     }
   }
 
-
+  // onClick={() => this.context.setLang('klingon')}
   render() {
-
-    const { idx, itemData } = this.props;
+    const { idx, itemData, history } = this.props;
     let fullName = itemData.fullName;
-
 
 
     let siteAddress = "";
@@ -39,11 +64,9 @@ class ParkItem extends Component {
     {
       siteAddress = `
             ${itemData.addresses[0].line1}
-            ${itemData.addresses[0].city},  ${itemData.addresses[0].$stateCode} ${itemData.addresses[0].postalCode} 
+            ${itemData.addresses[0].city},  ${itemData.addresses[0].stateCode} ${itemData.addresses[0].postalCode} 
             `;
     }
-
-
 
     return (
       <div className="item">
@@ -60,16 +83,16 @@ class ParkItem extends Component {
         <p>
           <b>HQ Address</b> : {siteAddress}
         </p>
-        {this.renderButtons()}
         <button className="btn-generic {idx}" type="button" > More Picture</button >
         <button className="btn-generic {idx}" type="button">Video</button>
-
+        {this.renderButtons()}
       </div>
 
     )
 
 
     /*
+
     */
     /*
           // let fullName = itemData.fullName;

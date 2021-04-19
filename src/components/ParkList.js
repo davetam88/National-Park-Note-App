@@ -11,7 +11,6 @@ class ParkList extends Component {
     this.state = {
       // stateCode: "AL",
       // activity: "All",
-      firstFetch: false,
       responseJson: {},
       NewData: {},
       EntryData: {},
@@ -66,14 +65,14 @@ class ParkList extends Component {
     return (
       <>
 
-        <h3 className="overlay-section-heading" a>
+        <h3 className="overlay-section-heading">
           There Are <em>{dataLen}</em> Parks That Matches Your Search Criteria<br />
           <em>StateCode = {stateCode}  :  Activity = {activity}</em>
         </h3>
         <div className="group-container wrap">
           {
             responseJson.data.map((element, idx) => (
-              <ParkItem key={idx} itemData={element} />
+              <ParkItem key={idx} itemData={element} history={this.props.history} />
             ))
           }
         </div>

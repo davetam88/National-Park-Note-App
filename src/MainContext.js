@@ -5,6 +5,9 @@ const MainContext = React.createContext({
   history: {},
   responseJson: {},
   users: [],
+  parks: [],
+  stateOptions: [],
+  activityOptions: [],
   error: null,
   stateCode: "",
   activity: "",
@@ -15,8 +18,12 @@ const MainContext = React.createContext({
   displayFavPage: "",
 
   MainControlFormCB: () => { },
+  ActivityCB: () => { },
+  StateCodeCB: () => { },
+
   RegistrationCB: () => { },
   LoginCB: () => { },
+  SaveParkCB: () => { },
 
 })
 

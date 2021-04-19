@@ -23,7 +23,7 @@ class HomePage extends Component {
         />
         <main>
           <section id="js-results" className="bg-main-display cls-results">
-            <ParkList />
+            <ParkList history={this.props.history} />
           </section>
         </main>
       </>

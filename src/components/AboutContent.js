@@ -19,8 +19,22 @@ export default function AboutContent(props) {
             APP. You
             can narrow down your search by State and Activities. Once your park(s) are located, you can see more pictures
             and/or
-            Youtube videos for a particular park. Enjoy!
-  </p>
+            Youtube videos for a particular park.
+            <br />
+            <br />
+            To see a user demo
+            acount,
+            enter 'demo' as the user and 'pwdemo' as the password in the
+    <span> </span>
+            <Link to='/login' >
+              LOGIN
+            </Link >
+            <span> </span>
+    page.
+            <br />
+            <br />
+
+          </p>
 
           <h1>
             The APP's Inspiration
@@ -53,19 +67,8 @@ export default function AboutContent(props) {
           save the park's information, Assign a stop number, rate it with a ranking number and add their custom
           notes, all
           the information will be stored in the APP and they can be used later. The user can sort these stored parks by
-    using the following criteria: <b>Park Name, Rating, State Name, Activity, and/or Stop Number.</b> <br />
-            <br />
-    To see a user demo
-          acount,
-    enter 'demo' as the user and 'pwdemo' as the password in the
-    <span> </span>
-            <Link to='/login' >
-              LOGIN
-            </Link >
-            <span> </span>
-    page.
-            <br />
-            <br />
+    using the following criteria: <b>Park Name, Rating, State Name, Activity, or Stop Number.</b> <br />
+
             <br />
 
           </p>

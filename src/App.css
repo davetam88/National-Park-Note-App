@@ -303,7 +303,7 @@ main h2 {
   /* color: #ffffff; */
   /* text-align: center; */
   margin: 0px;
-  padding: 35px 0 15px;
+  padding: 5px 0 5px;
   font-size: 1.5rem;
   color: black;
 }
@@ -389,4 +389,36 @@ main h2 {
     margin: 20px 20%;
     /* border: 1px solid green; */
   }
+}
+
+/*** color buttons for wf-main-user-park.html */
+
+.btn-generic-del {
+  background-color: rgb(252, 1, 1);
+  font-size: 14px;
+  -webkit-appearance: media-sliderthumb;
+  padding: 6px;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.btn-generic-mod {
+  background-color: rgb(87, 87, 230);
+  font-size: 14px;
+  -webkit-appearance: media-sliderthumb;
+  padding: 6px;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.btn-generic-save {
+  background-color: rgb(87, 87, 230);
+  font-size: 14px;
+  -webkit-appearance: media-sliderthumb;
+  padding: 6px;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
 }
