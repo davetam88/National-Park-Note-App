@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css'
 import MainContext from '../MainContext';
-import CommonControl from './CommonControl';
+import MainControl from './MainControl';
+import NavBar from './NavBar';
 import ParkList from './ParkList';
 
 class HomePage extends Component {
@@ -16,10 +17,15 @@ class HomePage extends Component {
 
     return (
       <>
-        <CommonControl
+        <MainControl
+          history={this.props.history}
           logInState={logInState}
-          displayFavPage={displayFavPage}
+          doFavPage="false"
           username={username}
+        />
+        <NavBar
+          username={username}
+          logInState={logInState}
         />
         <main>
           <section id="js-results" className="bg-main-display cls-results">

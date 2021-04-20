@@ -1,4 +1,6 @@
 export default {
+
+
   //const STORE = {
   users: [
     {
@@ -35,129 +37,6 @@ export default {
     'm': { id: 'm', title: 'Thirteenth card', content: 'lorem ipsum' },
   },
 
-  activityOptions: [
-    {
-      label: "-- All Activities --",
-      value: "All",
-    },
-    {
-      label: "Biking",
-      value: "Biking",
-    },
-
-    {
-      label: "Birdwatching",
-      value: "Birdwatching",
-    },
-    {
-      label: "Boating",
-      value: "Boating",
-    },
-    {
-      label: "Camping",
-      value: "Camping",
-    },
-    {
-      label: "Canoeing",
-      value: "Canoeing",
-    },
-    {
-      label: "Caving",
-      value: "Caving",
-    },
-    {
-      label: "Climbing",
-      value: "Climbing",
-    },
-    {
-      label: "Cross-Country Skiing",
-      value: "Cross-Country Skiing",
-    },
-    {
-      label: "Fishing",
-      value: "Fishing",
-    },
-    {
-      label: "Fly Fishing",
-      value: "Fly Fishing",
-    },
-    {
-      label: "Foraging",
-      value: "Foraging",
-    },
-    {
-      label: "Geocaching",
-      value: "Geocaching",
-    },
-    {
-      label: "Hiking",
-      value: "Hiking",
-    },
-    {
-      label: "Historical",
-      value: "Historical",
-    },
-    {
-      label: "Horseback Riding",
-      value: "Horseback Riding",
-    },
-    {
-      label: "Hunting",
-      value: "Hunting",
-    },
-    {
-      label: "Kayaking",
-      value: "Kayaking",
-    },
-    {
-      label: "Off-Roading",
-      value: "Off-Roading",
-    },
-    {
-      label: "Picnicking",
-      value: "Picnicking",
-    },
-    {
-      label: "Scenic Drive",
-      value: "Scenic Drive",
-    },
-    {
-      label: "Shopping",
-      value: "Shopping",
-    },
-    {
-      label: "Skiing",
-      value: "Skiing",
-    },
-    {
-      label: "Stargazing",
-      value: "Stargazing",
-    },
-    {
-      label: "Swimming",
-      value: "Swimming",
-    },
-    {
-      label: "Tours",
-      value: "Tours",
-    },
-    {
-      label: "Water Activities",
-      value: "Water Activities",
-    },
-    {
-      label: "Whitewater Rafting",
-      value: "Whitewater Rafting",
-    },
-    {
-      label: "Wildlife Viewing",
-      value: "Wildlife Viewing",
-    },
-    {
-      label: "Winter Sports",
-      value: "Winter Sports",
-    },
-  ],
 
   stateOptions: [
     {
@@ -366,6 +245,154 @@ export default {
     },
   ],
 
+
+  activityOptions: [
+    {
+      label: "-- All Activities --",
+      value: "All",
+    },
+    {
+      label: "Biking",
+      value: "Biking",
+    },
+
+    {
+      label: "Birdwatching",
+      value: "Birdwatching",
+    },
+    {
+      label: "Boating",
+      value: "Boating",
+    },
+    {
+      label: "Camping",
+      value: "Camping",
+    },
+    {
+      label: "Canoeing",
+      value: "Canoeing",
+    },
+    {
+      label: "Caving",
+      value: "Caving",
+    },
+    {
+      label: "Climbing",
+      value: "Climbing",
+    },
+    {
+      label: "Cross-Country Skiing",
+      value: "Cross-Country Skiing",
+    },
+    {
+      label: "Fishing",
+      value: "Fishing",
+    },
+    {
+      label: "Fly Fishing",
+      value: "Fly Fishing",
+    },
+    {
+      label: "Foraging",
+      value: "Foraging",
+    },
+    {
+      label: "Geocaching",
+      value: "Geocaching",
+    },
+    {
+      label: "Hiking",
+      value: "Hiking",
+    },
+    {
+      label: "Historical",
+      value: "Historical",
+    },
+    {
+      label: "Horseback Riding",
+      value: "Horseback Riding",
+    },
+    {
+      label: "Hunting",
+      value: "Hunting",
+    },
+    {
+      label: "Kayaking",
+      value: "Kayaking",
+    },
+    {
+      label: "Off-Roading",
+      value: "Off-Roading",
+    },
+    {
+      label: "Picnicking",
+      value: "Picnicking",
+    },
+    {
+      label: "Scenic Drive",
+      value: "Scenic Drive",
+    },
+    {
+      label: "Shopping",
+      value: "Shopping",
+    },
+    {
+      label: "Skiing",
+      value: "Skiing",
+    },
+    {
+      label: "Stargazing",
+      value: "Stargazing",
+    },
+    {
+      label: "Swimming",
+      value: "Swimming",
+    },
+    {
+      label: "Tours",
+      value: "Tours",
+    },
+    {
+      label: "Water Activities",
+      value: "Water Activities",
+    },
+    {
+      label: "Whitewater Rafting",
+      value: "Whitewater Rafting",
+    },
+    {
+      label: "Wildlife Viewing",
+      value: "Wildlife Viewing",
+    },
+    {
+      label: "Winter Sports",
+      value: "Winter Sports",
+    },
+  ],
+
+  // ccc
+  favOrderByOptoins: [
+    {
+      label: "Park Name",
+      value: "Park Name",
+    },
+    {
+      label: "Rating",
+      value: "Rating",
+    },
+    {
+      label: "State Name",
+      value: "State Name",
+    },
+    {
+      label: "Activity",
+      value: "Activity",
+    },
+    {
+      label: "Stop Number",
+      value: "Stop Number",
+    },
+  ],
 
 
 }

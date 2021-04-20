@@ -11,7 +11,14 @@ class AboutPage extends Component {
   }
 
   render() {
-    const { history } = this.props;
+    const { logInState, displayFavPage, username } = this.context;
+
+    <MainControl
+      history={this.props.history}
+      logInState={logInState}
+      doFavPage="false"
+      username={username}
+    />
 
     return (
       <>

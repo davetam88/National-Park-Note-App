@@ -13,11 +13,20 @@ class ParkItem extends Component {
 
 
 
+  // xxx
   // buttons can be save, modify
   handleFavButtons = (buttonName) => {
     // this.props.history.push('/')
   };
 
+  handleFavButtons = (buttonName) => {
+    // this.props.history.push('/')
+  };
+
+
+  handleFavButtons = (buttonName) => {
+    // this.props.history.push('/')
+  };
 
   renderButtons() {
 
@@ -83,8 +92,8 @@ class ParkItem extends Component {
         <p>
           <b>HQ Address</b> : {siteAddress}
         </p>
-        <button className="btn-generic {idx}" type="button" > More Picture</button >
-        <button className="btn-generic {idx}" type="button">Video</button>
+        <button className="btn-generic " type="button" > More Picture</button >
+        <button className="btn-generic " type="button">Video</button>
         {this.renderButtons()}
       </div>
 

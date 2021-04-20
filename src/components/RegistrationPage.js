@@ -55,7 +55,6 @@ class RegistrationPage extends Component {
     this.props.history.push('/')
   };
 
-
   handleSubmit = (e) => {
 
     e.preventDefault();

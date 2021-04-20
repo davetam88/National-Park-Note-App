@@ -70,7 +70,6 @@ class PictureList extends Component {
 
     return (
       <>
-
         <h3 className="overlay-section-heading">
           There Are <em>{dataLen}</em> Pictures That Matches Your Search Criteria<br />
           <em>StateCode = {stateCode}  :  Activity = {activity}</em>

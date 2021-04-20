@@ -10,7 +10,7 @@ export default function AboutContent(props) {
         <div class="about-content-container">
           <h1>
             Nation Park Trip Planner
-  </h1>
+        </h1>
 
           <p>
 
@@ -25,28 +25,25 @@ export default function AboutContent(props) {
             To see a user demo
             acount,
             enter 'demo' as the user and 'pwdemo' as the password in the
-    <span> </span>
+          <span> </span>
             <Link to='/login' >
               LOGIN
             </Link >
             <span> </span>
-    page.
+          page.
             <br />
             <br />
-
           </p>
-
           <h1>
             The APP's Inspiration
-
-  </h1>
+          </h1>
 
           <p>
             The APP's inspiration came from my love of nature and the outdoors, and the unspoiled state of National Parks
             in
             the
             United States.
-  </p>
+          </p>
 
           <h1> The APP's Features</h1>
           <p>
@@ -58,7 +55,7 @@ export default function AboutContent(props) {
             official page
             Link, and address. The user can then visually explore their favorite park with the 'More Picture' and 'Videos'
             buttons.
-  </p>
+          </p>
 
           <h1>Login In User Feature</h1>
 
@@ -67,14 +64,11 @@ export default function AboutContent(props) {
           save the park's information, Assign a stop number, rate it with a ranking number and add their custom
           notes, all
           the information will be stored in the APP and they can be used later. The user can sort these stored parks by
-    using the following criteria: <b>Park Name, Rating, State Name, Activity, or Stop Number.</b> <br />
-
+          using the following criteria: <b>Park Name, Rating, State Name,   Activity, or Stop Number.</b> <br />
             <br />
-
           </p>
         </div>
       </main>
-
     </>
   )
 }

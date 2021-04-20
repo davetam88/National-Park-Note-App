@@ -1,9 +1,11 @@
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import MainContext from '../MainContext';
 import '../App.css'
 
 import MainControlForm from './MainControlForm';
+import FavControlForm from './FavControlForm';
 import NavBar from "./NavBar";
 import PropTypes from 'prop-types';
 import LoginPage from './LoginPage';
@@ -42,8 +44,6 @@ class MainControl extends Component {
                   </span>
           </Link >
 
-
-
         </>
       )
     else
@@ -53,7 +53,7 @@ class MainControl extends Component {
   }
 
   render() {
-    const { logInState, displayFavPage } = this.props;
+    const { logInState, doFavPage, hisotry } = this.props;
 
     return (
       <>
@@ -65,7 +65,13 @@ class MainControl extends Component {
             {this.renderLoginUser(logInState)}
             </h2>
           </div>
-          <MainControlForm />
+
+          {(doFavPage === "true")
+            ? <FavControlForm />
+            // : <MainControlForm history="{history}" />
+            : <MainControlForm />
+          }
+
           {(this.context.fetchErrMsg)
             ? <div class="error-message-main">this.context.fetchErrMsg</div>
             : <> </>}

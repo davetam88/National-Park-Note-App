@@ -33,7 +33,7 @@ class NavBar extends Component {
           <Link to='/logout'>
             Logout
           </Link>
-          <span class="username">
+          <span className="username">
             {username}
           </span>
         </>

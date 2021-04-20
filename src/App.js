@@ -10,7 +10,6 @@ import RegistrationPage from './components/RegistrationPage';
 import STORE from './STORE'
 import "./App.css";
 
-
 class App extends Component {
   state = {
     history: {},
@@ -34,13 +33,11 @@ class App extends Component {
   };
 
   ActivityCB = (activity) => {
-    // this.state.activity = activity;
-    this.setState({ activity })
+    this.state.activity = activity;
   }
 
   StateCodeCB = (stateCode) => {
-    // this.state.stateCode = stateCode;
-    this.setState({ stateCode })
+    this.state.stateCode = stateCode;
   }
 
 
@@ -86,7 +83,6 @@ class App extends Component {
 
   SaveParkCB = () => {
     this.setState({
-
     })
   }
 
@@ -94,7 +90,7 @@ class App extends Component {
     const { stateCode, activity } = this.state;
 
     this.fetchParkInfos(stateCode, activity, 20);
-  }
+  } a
 
   /*** fetch data */
 
@@ -160,11 +156,20 @@ class App extends Component {
         // displayParksInfo(responseJson, stateCode, activity)
       })
       .catch(err => {
-        let errmsg = `Something went wrong: ${err.message}`;
-        alert(errmsg);
+        let errmsg = `Error: ${err.message}`;
+        this.setState({
+          fetchErrMsg: errmsg,
+        })
+        //        alert(errmsg);
+
       });
   }
 
+  setFavParkFlag() {
+    this.setState({
+      displayFavPage: true,
+    })
+  }
 
   render() {
 
@@ -192,7 +197,6 @@ class App extends Component {
     }
 
 
-
     return (
       <div className="container">
         <MainContext.Provider value={contextValue}>
@@ -205,7 +209,20 @@ class App extends Component {
 
           <Route path="/login" component={LoginPage} />
 
-          <Route path="/favpark" component={FavParkPage} />
+
+          {/* <Route path="/favpark" component={FavParkPage} />
+ */}
+
+
+          < Route
+            path="/favpark"
+            render={routeProps => {
+              return (
+                <FavParkPage />
+              )
+              // return null;
+            }}
+          />
 
           < Route
             path="/logout"

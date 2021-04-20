@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 // import Activities from '../Activities';
 import { withRouter } from 'react-router-dom';
 
-
 class MainControlForm extends Component {
   static contextType = MainContext;
   constructor(props) {
@@ -23,24 +22,6 @@ class MainControlForm extends Component {
       push: () => { },
     },
   };
-
-
-  handleChange(e) {
-    console.log("-----------Fruit Selected!!");
-    this.setState({ fruit: e });
-  }
-
-
-
-  updateState(xx) {
-
-    // stateCode
-    // this.context.StateCodeCB(stateCode)
-  }
-
-  updateActivity(activity) {
-    // not use 
-  }
 
 
   handleSubmit = (e) => {
@@ -65,7 +46,7 @@ class MainControlForm extends Component {
           < Link to='/favpark' >
             <span style={styles}>
               Go to My Favorite Parks Page
-                  </span>
+           </span>
           </Link >
         </>
       )
@@ -76,12 +57,13 @@ class MainControlForm extends Component {
   }
 
 
+
   render() {
     const { ActivityCB, StateCodeCB, activity, stateCode, stateOptions, activityOptions } = this.context;
 
     return (
       <>
-        <h3 className="filter-title"> Please Select your Filter
+        <h3 className="filter-title"> Please Select Your Filter
         {this.renderGoFavLink()}
         </h3>
 
@@ -127,6 +109,7 @@ class MainControlForm extends Component {
               </div>
 
               <div id="js-error-message-main" className="error-message-main">
+                {this.context.fetchErrMsg}
               </div>
             </div>
           </div>
