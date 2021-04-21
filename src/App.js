@@ -33,13 +33,16 @@ class App extends Component {
   };
 
   ActivityCB = (activity) => {
-    this.state.activity = activity;
+    this.setState({
+      activity
+    })
   }
 
   StateCodeCB = (stateCode) => {
-    this.state.stateCode = stateCode;
+    this.setState({
+      stateCode
+    })
   }
-
 
   MainControlFormCB = () => {
     const { stateCode, activity } = this.state;
@@ -102,9 +105,8 @@ class App extends Component {
   }
 
   fetchParkInfos(stateCode, activity, maxResults = 4) {
-    this.state.fetchErrMsg = "";
+    this.setState({ fetchErrMsg: "" })
 
-    const { responseJson } = this.state;
     // ok key
     const api_key = 'nC3wQoBberQTpH9oGy9RZd3WPZRbbUw3eTCblSCb';
 
@@ -133,7 +135,7 @@ class App extends Component {
       paramsUse = paramsAllActivity;
     }
 
-    const queryString = this.formatParkInfoQueryParams(paramsNormal);
+    const queryString = this.formatParkInfoQueryParams(paramsUse);
     const parkURL = searchURL + '?' + queryString;
 
     fetch(parkURL)

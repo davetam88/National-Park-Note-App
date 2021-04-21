@@ -8,12 +8,12 @@ import ParkList from './ParkList';
 class HomePage extends Component {
   static contextType = MainContext;
 
-  constructor(props) {
-    super(props);
-  }
 
+
+
+  di
   render() {
-    const { logInState, displayFavPage, username } = this.context;
+    const { logInState, username } = this.context;
 
     return (
       <>

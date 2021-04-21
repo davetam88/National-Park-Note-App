@@ -36,7 +36,7 @@ class FavParkList extends Component {
             2680 Natchez Trace Parkway
             Tupelo, MS 38804
           </p>
-                <a href="wf-pictures.html"></a>
+                {/* <a href="wf-pictures.html"></a> */}
                 <button class="btn-generic 0" type="button">More Picture</button>
                 {/* <a href="wf-videos.html"></a> */}
                 <button class="btn-generic 0" type="button">Video</button>

@@ -1,14 +1,14 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import MainContext from '../MainContext';
+// import MainContext from '../MainContext';
 import '../App.css'
 
 import MainControlForm from './MainControlForm';
 import FavControlForm from './FavControlForm';
-import NavBar from "./NavBar";
-import PropTypes from 'prop-types';
-import LoginPage from './LoginPage';
+// import NavBar from "./NavBar";
+
+
 
 
 class MainControl extends Component {
@@ -53,7 +53,7 @@ class MainControl extends Component {
   }
 
   render() {
-    const { logInState, doFavPage, hisotry } = this.props;
+    const { logInState, doFavPage } = this.props;
 
     return (
       <>

@@ -9,8 +9,8 @@ class PictureItem extends Component {
   }
   render() {
 
-    const { idx, itemData } = this.props;
-    let fullName = itemData.fullName;
+    const { itemData } = this.props;
+
 
     let siteAddress = "";
     if (itemData.addresses.length === 0)

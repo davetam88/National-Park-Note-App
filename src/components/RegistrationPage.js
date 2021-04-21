@@ -3,11 +3,8 @@ import React, { Component } from 'react';
 import MainContext from '../MainContext';
 import '../App.css'
 import './FavForm.css'
-import STORE from '../STORE'
+// import STORE from '../STORE'
 
-import config from '../config';
-import PropTypes from 'prop-types';
-import { isAfter } from 'date-fns';
 
 class RegistrationPage extends Component {
   static contextType = MainContext;

@@ -1,5 +1,5 @@
 import React from 'react'
-// import STORE from './STORE'
+
 
 const MainContext = React.createContext({
   history: {},

@@ -14,7 +14,7 @@ class FavParkPage extends Component {
     this.state = {}
   }
   render() {
-    const { logInState, displayFavPage, username } = this.context;
+    const { logInState, username } = this.context;
 
     return (
       <>
@@ -32,6 +32,7 @@ class FavParkPage extends Component {
             <FavParkList />
           </section>
         </main>
+
       </>
     )
   }

@@ -42,7 +42,7 @@ class LoginPage extends Component {
 
   handleSubmit = (e) => {
     const { users } = this.context;
-    const { username, password, errorMsg } = this.state;
+    const { username, password } = this.state;
 
 
     e.preventDefault();
@@ -89,7 +89,7 @@ class LoginPage extends Component {
   }
 
   render() {
-    const { username, password, errorMsg } = this.state;
+    const { errorMsg } = this.state;
 
     return (
       <>

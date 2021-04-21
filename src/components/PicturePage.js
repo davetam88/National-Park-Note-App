@@ -9,9 +9,10 @@ class PicturePage extends Component {
 
   static contextType = MainContext;
 
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
+
 
 
   render() {

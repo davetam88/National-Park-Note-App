@@ -1,7 +1,5 @@
-export default {
 
-
-  //const STORE = {
+const STORE = {
   users: [
     {
       id: '1',
@@ -370,7 +368,6 @@ export default {
     },
   ],
 
-  // ccc
   favOrderByOptoins: [
     {
       label: "Park Name",
@@ -394,7 +391,6 @@ export default {
     },
   ],
 
-
 }
+export default STORE;
 
-//module.exports = { STORE }

@@ -49,7 +49,7 @@ class ParkList extends Component {
 
   render() {
     const { responseJson } = this.context;
-    const { formChange, stateCode, activity } = this.context;
+    const { stateCode, activity } = this.context;
 
 
     if (Object.keys(responseJson).length === 0)

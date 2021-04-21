@@ -62,9 +62,7 @@ class ParkItem extends Component {
 
   // onClick={() => this.context.setLang('klingon')}
   render() {
-    const { idx, itemData, history } = this.props;
-    let fullName = itemData.fullName;
-
+    const { itemData } = this.props;
 
     let siteAddress = "";
     if (itemData.addresses.length === 0)
@@ -116,7 +114,6 @@ class ParkItem extends Component {
   }
 
 }
-
 export default ParkItem;
 
 

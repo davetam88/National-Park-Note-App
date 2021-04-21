@@ -2,10 +2,7 @@
 import React, { Component } from 'react';
 import MainContext from '../MainContext';
 import { Link } from 'react-router-dom'
-import config from '../config';
-import PropTypes from 'prop-types';
-// import States from '../States.js';
-// import Activities from '../Activities';
+// import config from '../config';
 // import { withRouter } from 'react-router-dom';
 
 class MainControlForm extends Component {
@@ -61,7 +58,7 @@ class MainControlForm extends Component {
 
   render() {
 
-    const { favOrderByCB, favOrderByOptoins } = this.context;
+    // const { favOrderByCB, favOrderByOptoins } = this.context;
 
     return (
       <>
