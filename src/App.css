@@ -251,14 +251,6 @@ select {
   border-radius: 4px;
 }
 
-button {
-  cursor: pointer;
-}
-
-input {
-  cursor: pointer;
-}
-
 /*** main and section  */
 
 main {
@@ -355,7 +347,7 @@ main h2 {
   border: 2px solid gray;
 }
 
-/*** media  query */
+/*** media query */
 
 @media (min-width: 400px) {
   .item {
@@ -443,4 +435,50 @@ main h2 {
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
   transform: translateY(-0.25em);
   transition: 0.25s;
+}
+
+/*** submit and reset */
+
+.btn-generic-submit {
+  font-size: 14px;
+  background-color: #729b2a;
+  -webkit-appearance: media-sliderthumb;
+  padding: 6px;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.btn-generic-submit:hover, .btn-generic-submit:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  /* transform: translateY(-0.25em); */
+  background-color: #5f7e2a;
+  transition: background .5s ease-in, transform .5s .25s ease-in-out;
+}
+
+.btn-generic-reset {
+  background-color: lightsalmon;
+  font-size: 14px;
+  -webkit-appearance: media-sliderthumb;
+  padding: 6px;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.btn-generic-reset:hover, .btn-generic-reset:focus {
+  /* .btn-generic-reset:focus { */
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  /* transform: translateY(-0.25em); */
+  background-color: rgb(250, 77, 34);
+  transition: 0.25s;
+  transition: background .5s ease-in, transform .5s .25s ease-in-out;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  cursor: pointer;
 }
