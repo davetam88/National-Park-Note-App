@@ -98,8 +98,9 @@ class MainControlForm extends Component {
 
 
               <div className="filter-button-section">
-                <button type="reset" id="reset">Reset</button>
-                <input type="submit" id="submit" value="Submit" />
+                <button class="btn-generic-reset" type="reset" >Reset</button>
+
+                <input class="btn-generic-submit" type="submit" value="Submit" />
               </div>
 
               <div id="js-error-message-main" className="error-message-main">
