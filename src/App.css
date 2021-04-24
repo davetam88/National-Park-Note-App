@@ -413,13 +413,13 @@ main h2 {
 
 /*** button effects */
 
-.btn-generic-mod:hover, .btn-generic-save:focus {
+.btn-generic-mod:hover {
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
   transform: translateY(-0.25em);
   transition: 0.25s;
 }
 
-.btn-generic-save:hover, .btn-generic-save:focus {
+.btn-generic-save:hover {
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
   transform: translateY(-0.25em);
   transition: 0.25s;
@@ -449,11 +449,11 @@ main h2 {
   border-radius: 4px;
 }
 
-.btn-generic-submit:hover, .btn-generic-submit:focus {
+.btn-generic-submit:hover {
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
   /* transform: translateY(-0.25em); */
   background-color: #5f7e2a;
-  transition: background .5s ease-in, transform .5s .25s ease-in-out;
+  transition: background .25s ease-in, transform .5s .25s ease-in-out;
 }
 
 .btn-generic-reset {
@@ -466,13 +466,10 @@ main h2 {
   border-radius: 4px;
 }
 
-.btn-generic-reset:hover, .btn-generic-reset:focus {
-  /* .btn-generic-reset:focus { */
+.btn-generic-reset:hover {
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-  /* transform: translateY(-0.25em); */
+  transition: background .25s ease-in, transform .5s .25s ease-in-out;
   background-color: rgb(250, 77, 34);
-  transition: 0.25s;
-  transition: background .5s ease-in, transform .5s .25s ease-in-out;
 }
 
 button {
@@ -481,4 +478,28 @@ button {
 
 input {
   cursor: pointer;
+}
+
+.btn-generic-fav {
+  font-size: 14px;
+  -webkit-appearance: media-sliderthumb;
+  padding: 6px;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+
+.blue {
+  background-color: rgb(87, 87, 230);
+}
+
+.green {
+  background-color: #517414;
+}
+
+.btn-generic-fav:hover {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+  transition: 0.25s;
 }

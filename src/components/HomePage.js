@@ -10,8 +10,6 @@ class HomePage extends Component {
 
 
 
-
-  di
   render() {
     const { logInState, username } = this.context;
 
@@ -20,7 +18,7 @@ class HomePage extends Component {
         <MainControl
           history={this.props.history}
           logInState={logInState}
-          doFavPage="false"
+          doFavPage={false}
           username={username}
         />
         <NavBar

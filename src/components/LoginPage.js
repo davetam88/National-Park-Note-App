@@ -89,6 +89,7 @@ class LoginPage extends Component {
   }
 
   render() {
+
     const { errorMsg } = this.state;
 
     return (

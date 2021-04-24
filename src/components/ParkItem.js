@@ -4,29 +4,33 @@ import '../App.css'
 
 class ParkItem extends Component {
   static contextType = MainContext;
+
   constructor(props) {
     super(props);
     this.state = {
-
     }
   }
 
 
+  // ccc
 
-  // xxx
-  // buttons can be save, modify
-  handleFavButtons = (buttonName) => {
+  handleSaveButton = () => {
+    this.props.history.push('/add-fav-note')
     // this.props.history.push('/')
   };
 
-  handleFavButtons = (buttonName) => {
+  handleModifyButton = () => {
+    this.props.history.push('/')
+  };
+
+
+  handleDeleteButton = () => {
+
+
     // this.props.history.push('/')
   };
 
 
-  handleFavButtons = (buttonName) => {
-    // this.props.history.push('/')
-  };
 
   renderButtons() {
 
@@ -34,13 +38,15 @@ class ParkItem extends Component {
     {
       if (this.context.savedPark)
       {
+        // ccc
         return (
           <>
             <button className="btn-generic-mod " type="button"
-              onClick={() => this.handleFavButtons('modify')}
-            >Modify</button>
+              onClick={e => this.handleModifyButton()}  >
+              Modify</button>
+
             <button className="btn-generic-del " type="button"
-              onClick={() => this.handleFavButtons('delete')}
+              onClick={e => this.handleDeleteButton()}
             > Delete</button>
           </>
         )
@@ -48,11 +54,13 @@ class ParkItem extends Component {
       {
         return (
           <>
+
+
             <button className="btn-generic-save" type="button"
-              onClick={() => this.handleFavButtons('save')}
+              onClick={e => this.handleSaveButton()}
             > Save</button>
             <button className="btn-generic-del " type="button"
-              onClick={() => this.handleFavButtons('delete')}
+              onClick={e => this.handleDeleteButton()}
             > Delete</button>
           </>
         )
@@ -60,7 +68,6 @@ class ParkItem extends Component {
     }
   }
 
-  // onClick={() => this.context.setLang('klingon')}
   render() {
     const { itemData } = this.props;
 

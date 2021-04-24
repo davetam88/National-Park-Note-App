@@ -13,23 +13,35 @@ class FavParkPage extends Component {
     super(props);
     this.state = {}
   }
+
+  componentDidMount() {
+    // fetchFavParkInfos(parkCode, "");
+    // const { stateCode, activity } = this.state;
+    this.context.fetchFavParkInfosCB(1);
+    // this.fetchParkInfos(stateCode, activity, 20);
+  }
+
+
   render() {
     const { logInState, username } = this.context;
 
     return (
       <>
         <MainControl
+          history={this.props.history}
           logInState={logInState}
-          doFavPage="true"
+          doFavPage={true}
           username={username}
         />
         <NavBar
           username={username}
           logInState={logInState}
         />
+
+
         <main>
           <section id="js-results" className="bg-main-display cls-results">
-            <FavParkList />
+            <FavParkList history={this.props.history} />
           </section>
         </main>
 

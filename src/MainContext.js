@@ -3,11 +3,14 @@ import React from 'react'
 
 const MainContext = React.createContext({
   history: {},
-  responseJson: {},
+  fetchDataMainPark: {},
+  fetchDataFavPark: {},
   users: [],
   parks: [],
-  stateOptions: [],
   activityOptions: [],
+  stateOptions: [],
+  favOrderByOptoins: [],
+
   error: null,
   stateCode: "",
   activity: "",
@@ -17,14 +20,16 @@ const MainContext = React.createContext({
   fetchErrMsg: "",
   displayFavPage: "",
 
-  MainControlFormCB: () => { },
+
   ActivityCB: () => { },
   StateCodeCB: () => { },
-
+  MainControlFormCB: () => { },
   RegistrationCB: () => { },
   LoginCB: () => { },
   SaveParkCB: () => { },
+  favOrderByCB: () => { },
 
+  fetchFavParkInfosCB: () => { },
 })
 
 export default MainContext

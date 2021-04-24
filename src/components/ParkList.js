@@ -5,13 +5,14 @@ import '../App.css'
 
 class ParkList extends Component {
   static contextType = MainContext;
+
   constructor(props) {
     super(props);
 
     this.state = {
       // stateCode: "AL",
       // activity: "All",
-      responseJson: {},
+      fetchDataMainPark: {},
       NewData: {},
       EntryData: {},
     }
@@ -24,8 +25,8 @@ class ParkList extends Component {
     // $('.cls-results').on('click', '.btn-more-pic', event => {
     //   const idx = getItemIdFromElement(event.currentTarget);
     //   // get the image from the store and ren
-    //   let responseJson = NewData[idx].responseJson;
-    //   displayMorePicture(responseJson);
+    //   let fetchDataMainPark = NewData[idx].fetchDataMainPark;
+    //   displayMorePicture(fetchDataMainPark);
     // });
 
   }
@@ -40,7 +41,7 @@ class ParkList extends Component {
     // $('.cls-results').on('click', '.btn-video', event => {
     //   const idx = getItemIdFromElement(event.currentTarget);
     //   // get the park info from the big data
-    //   let parkName = NewData[idx].responseJson.fullName;
+    //   let parkName = NewData[idx].fetchDataMainPark.fullName;
     //   // get info and display it
     //   getVideoInfos(parkName);
     // });
@@ -48,19 +49,17 @@ class ParkList extends Component {
 
 
   render() {
-    const { responseJson } = this.context;
+    const { fetchDataMainPark } = this.context;
     const { stateCode, activity } = this.context;
 
-
-    if (Object.keys(responseJson).length === 0)
+    if (Object.keys(fetchDataMainPark).length === 0)
     {
       return (
         <>
         </>
       )
     }
-
-    const dataLen = responseJson.data.length;
+    const dataLen = fetchDataMainPark.data.length;
 
     return (
       <>
@@ -71,7 +70,7 @@ class ParkList extends Component {
         </h3>
         <div className="group-container wrap">
           {
-            responseJson.data.map((element, idx) => (
+            fetchDataMainPark.data.map((element, idx) => (
               <ParkItem key={idx} itemData={element} history={this.props.history} />
             ))
           }

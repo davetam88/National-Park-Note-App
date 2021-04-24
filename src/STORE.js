@@ -1,4 +1,3 @@
-
 const STORE = {
   users: [
     {
@@ -368,29 +367,29 @@ const STORE = {
     },
   ],
 
+
   favOrderByOptoins: [
     {
       label: "Park Name",
-      value: "Park Name",
+      selected: 1,
     },
     {
       label: "Rating",
-      value: "Rating",
+      selected: 0,
     },
     {
       label: "State Name",
-      value: "State Name",
+      selected: 0,
     },
     {
       label: "Activity",
-      value: "Activity",
+      selected: 0,
     },
     {
       label: "Stop Number",
-      value: "Stop Number",
+      selected: 0,
     },
   ],
-
 }
 export default STORE;
 

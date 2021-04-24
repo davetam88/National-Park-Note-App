@@ -51,7 +51,6 @@ class MainControlForm extends Component {
   }
 
 
-
   render() {
     const { ActivityCB, StateCodeCB, activity, stateCode, stateOptions, activityOptions } = this.context;
 
@@ -84,6 +83,8 @@ class MainControlForm extends Component {
               </div>
 
               {/* activity */}
+
+
               <div className="field">
                 <label htmlFor="js-activities" className="main-label"> Activities</label>
                 <select value={activity}
@@ -96,11 +97,10 @@ class MainControlForm extends Component {
                 </select>
               </div>
 
-
               <div className="filter-button-section">
-                <button class="btn-generic-reset" type="reset" >Reset</button>
+                <button className="btn-generic-reset" type="reset" >Reset</button>
 
-                <input class="btn-generic-submit" type="submit" value="Submit" />
+                <input className="btn-generic-submit" type="submit" value="Submit" />
               </div>
 
               <div id="js-error-message-main" className="error-message-main">

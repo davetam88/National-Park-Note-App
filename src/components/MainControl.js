@@ -66,7 +66,7 @@ class MainControl extends Component {
             </h2>
           </div>
 
-          {(doFavPage === "true")
+          {(doFavPage === true && logInState == true)
             ? <FavControlForm />
             // : <MainControlForm history="{history}" />
             : <MainControlForm />

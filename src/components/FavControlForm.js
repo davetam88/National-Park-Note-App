@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import MainContext from '../MainContext';
 import { Link } from 'react-router-dom'
@@ -21,12 +20,8 @@ class MainControlForm extends Component {
     },
   };
 
+  handleModifyButton(e) {
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-
-    this.context.MainControlFormCB();
-    this.props.history.push('/')
   }
 
   renderGoFavLink() {
@@ -55,32 +50,30 @@ class MainControlForm extends Component {
   }
 
 
-
   render() {
 
-    // const { favOrderByCB, favOrderByOptoins } = this.context;
+    const { favOrderByCB, favOrderByOptoins } = this.context;
 
     return (
       <>
-        <h3 className="filter-title"> 
-        Sort Your Favorite Parks by The Filters Below
-       
+        <h3 className="filter-title">
+          Sort Your Favorite Parks by The Filters Below
         {this.renderGoFavLink()}
         </h3>
 
-        <div class="nav-myFav-radio-btn-container">
-
-          <button class="btn-generic-save" type="button">Park Name</button>
-          <span>  </span>
-          <button class="btn-generic 0" type="button">Rating</button>
-          <span>  </span>
-          <button class="btn-generic 0" type="button">State Name</button>
-          <span>  </span>
-          <button class="btn-generic 0" type="button"> Stop Number </button>
-          <span>  </span>
-          <button class="btn-generic 0" type="button"> Activity </button>
-          <span>  </span>
+        <div class="nav-myFav-radio-btn-container"> (
+          {favOrderByOptoins.map((option, idx) => (
+          <button key={idx} type="button"
+            className=
+            {(option.selected)
+              ? "btn-generic-fav blue"
+              : "btn-generic-fav green"
+            }
+            onClick={e => favOrderByCB(idx)}  >
+            {option.label}</button>
+        ))}
         </div>
+
         <br />
         < div id="js-error-message-main" className="error-message-main" >
           {this.context.fetchErrMsg}
