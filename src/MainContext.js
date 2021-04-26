@@ -6,20 +6,27 @@ const MainContext = React.createContext({
   fetchDataMainPark: {},
   fetchDataFavPark: {},
   users: [],
-  parks: [],
+  favParks: [],
+
   activityOptions: [],
   stateOptions: [],
   favOrderByOptoins: [],
 
   error: null,
-  stateCode: "",
+
   activity: "",
+  stateCode: "",
+  parkName: "",
+  parkCode: "",
+  parkSelected: "",
+
   username: "",
   password: "",
+
   logInState: false,
+  savedPark: false,
   fetchErrMsg: "",
   displayFavPage: "",
-
 
   ActivityCB: () => { },
   StateCodeCB: () => { },
@@ -28,6 +35,9 @@ const MainContext = React.createContext({
   LoginCB: () => { },
   SaveParkCB: () => { },
   favOrderByCB: () => { },
+  MainParkSaveButtonCB: () => { },
+  ParkSelectedCB: () => { },
+  AddFavNoteSubmitCB: () => { },
 
   fetchFavParkInfosCB: () => { },
 })

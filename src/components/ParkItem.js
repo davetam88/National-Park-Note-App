@@ -5,6 +5,8 @@ import '../App.css'
 class ParkItem extends Component {
   static contextType = MainContext;
 
+  parkCodeSelected = "";
+
   constructor(props) {
     super(props);
     this.state = {
@@ -12,12 +14,6 @@ class ParkItem extends Component {
   }
 
 
-  // ccc
-
-  handleSaveButton = () => {
-    this.props.history.push('/add-fav-note')
-    // this.props.history.push('/')
-  };
 
   handleModifyButton = () => {
     this.props.history.push('/')
@@ -31,14 +27,12 @@ class ParkItem extends Component {
   };
 
 
-
-  renderButtons() {
+  renderButtons(parkCode, fullName, history) {
 
     if (this.context.logInState)
     {
       if (this.context.savedPark)
       {
-        // ccc
         return (
           <>
             <button className="btn-generic-mod " type="button"
@@ -54,14 +48,9 @@ class ParkItem extends Component {
       {
         return (
           <>
-
-
             <button className="btn-generic-save" type="button"
-              onClick={e => this.handleSaveButton()}
+              onClick={e => this.context.MainParkSaveButtonCB(fullName, parkCode, history)}
             > Save</button>
-            <button className="btn-generic-del " type="button"
-              onClick={e => this.handleDeleteButton()}
-            > Delete</button>
           </>
         )
       }
@@ -69,7 +58,7 @@ class ParkItem extends Component {
   }
 
   render() {
-    const { itemData } = this.props;
+    const { itemData, history } = this.props;
 
     let siteAddress = "";
     if (itemData.addresses.length === 0)
@@ -81,6 +70,7 @@ class ParkItem extends Component {
             ${itemData.addresses[0].city},  ${itemData.addresses[0].stateCode} ${itemData.addresses[0].postalCode} 
             `;
     }
+
 
     return (
       <div className="item">
@@ -99,24 +89,10 @@ class ParkItem extends Component {
         </p>
         <button className="btn-generic " type="button" > More Picture</button >
         <button className="btn-generic " type="button">Video</button>
-        {this.renderButtons()}
+        {this.renderButtons(itemData.parkCode, itemData.fullName, history)}
       </div>
 
     )
-
-
-    /*
-
-    */
-    /*
-          // let fullName = itemData.fullName;
-  
-  
-    itemData :>> {id: "E8A0F0B6-983F-4B9A-9A67-BFF6F9E4204A", url: "https://www.nps.gov/natr/index.htm", fullName:
-    "Natchez Trace Parkway", parkCode: "natr", description: "The Natchez Trace Parkway is a 444-mile recreation… horseback
-    riding, and camping along the parkway.", …}
-  
-    */
 
   }
 

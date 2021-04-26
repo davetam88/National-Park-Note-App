@@ -56,7 +56,7 @@ class MainControlForm extends Component {
 
     return (
       <>
-        <h3 className="filter-title"> Please Select Your Filter
+        <h3 className="filter-title"> Please Select Filter Below
         {this.renderGoFavLink()}
         </h3>
 
@@ -69,6 +69,7 @@ class MainControlForm extends Component {
               {/* state */}
               <div className="field">
                 <div className="select-container">
+
                   <label htmlFor="js-activities" className="main-label"> State Name</label>
                   <select value={stateCode}
                     className="itemRight field-qty-num"
@@ -87,6 +88,7 @@ class MainControlForm extends Component {
 
               <div className="field">
                 <label htmlFor="js-activities" className="main-label"> Activities</label>
+
                 <select value={activity}
                   className="itemRight field-qty-num"
                   onChange={(e) => ActivityCB(e.target.value)}

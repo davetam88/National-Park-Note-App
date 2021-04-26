@@ -61,6 +61,11 @@
   color: white;
 }
 
+.FavPark-form button[type="reset"]:hover {
+  background-color: #29862e;
+  color: white;
+}
+
 .FavPark-form button[type="button"]:hover {
   background-color: #29862e;
   color: white;

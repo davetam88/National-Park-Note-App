@@ -16,21 +16,22 @@ class App extends Component {
   searchURL = 'https://developer.nps.gov/api/v1/parks';
 
   state = {
-    history: {},
     fetchDataMainPark: {},
     fetchDataFavPark: {},
 
     users: STORE.users,
-    parks: STORE.parks,
+    favParks: STORE.favParks,
+
     stateOptions: STORE.stateOptions,
     activityOptions: STORE.activityOptions,
     favOrderByOptoins: STORE.favOrderByOptoins,
     favOrderBySelected: 1,
 
-
     activity: "All",
     stateCode: "AL",
+    parkName: "",
     parkCode: "",
+
     username: "",
     password: "",
 
@@ -39,6 +40,7 @@ class App extends Component {
     savedPark: false,
     fetchErrMsg: "",
     displayFavPage: false,
+    // save park name and code
 
   };
 
@@ -100,15 +102,15 @@ class App extends Component {
     // store information to database
   }
 
-  SaveParkCB = () => {
-    this.setState({
-    })
-
-  }
-
   handleLogout() {
     this.setState({
       logInState: false
+    })
+  }
+
+
+  SaveParkCB = () => {
+    this.setState({
     })
   }
 
@@ -122,9 +124,36 @@ class App extends Component {
       favOrderByOptoins: newSelect,
       favOrderBySelected: idx,
     });
-    // favOrderByOptoins[idx].selected = 1,
   }
 
+
+  MainParkSaveButtonCB = (parkName, parkCode, history) => {
+    localStorage.setItem("park", parkName)
+    this.setState({
+      parkCode,
+      parkName,
+    });
+
+    history.push('/add-fav-note')
+    // this.props.history.push('/')
+  };
+
+
+
+  ParkSelectedCB = (parkSelected) => {
+    this.setState({
+      parkSelected
+    })
+  }
+
+  AddFavNoteSubmitCB = (favPark) => {
+    this.setState({
+      favParks: [
+        ...this.state.favParks,
+        favPark
+      ],
+    })
+  }
 
   fetchFavParkInfosCB = (firsTime) => {
     this.fetchFavParkInfosExec("hobe", 'All')
@@ -141,7 +170,6 @@ class App extends Component {
 
 
   /*** fetch data */
-
 
   fetchFavParkInfosExec(parkCode, activity) {
     this.setState({ fetchErrMsg: "" })
@@ -204,6 +232,7 @@ class App extends Component {
       .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&');
   }
+
 
   fetchParkInfos(stateCode, activity, maxResults = 4) {
     this.setState({ fetchErrMsg: "" })
@@ -273,19 +302,24 @@ class App extends Component {
       fetchDataFavPark: this.state.fetchDataFavPark,
 
       users: this.state.users,
+      favParks: this.state.favParks,
       stateOptions: this.state.stateOptions,
       activityOptions: this.state.activityOptions,
       favOrderByOptoins: this.state.favOrderByOptoins,
 
-      stateCode: this.state.stateCode,
       activity: this.state.activity,
+      stateCode: this.state.stateCode,
+      parkName: this.state.parkName,
+      parkCode: this.state.parkCode,
+      parkSelected: this.state.parkSelected,
+
       username: this.state.username,
       password: this.state.password,
+
       logInState: this.state.logInState,
+      savedPark: this.state.savedPark,
       fetchErrMsg: this.state.fetchErrMsg,
-
       displayFavPage: this.state.displayFavPage,
-
 
       ActivityCB: this.ActivityCB,
       StateCodeCB: this.StateCodeCB,
@@ -294,6 +328,9 @@ class App extends Component {
       LoginCB: this.LoginCB,
       SaveParkCB: this.SaveParkCB,
       favOrderByCB: this.favOrderByCB,
+      MainParkSaveButtonCB: this.MainParkSaveButtonCB,
+      ParkSelectedCB: this.ParkSelectedCB,
+      AddFavNoteSubmitCB: this.AddFavNoteSubmitCB,
 
       fetchFavParkInfosCB: this.fetchFavParkInfosCB,
     }
@@ -311,23 +348,28 @@ class App extends Component {
 
           <Route path="/login" component={LoginPage} />
 
+          {/* <Route path="/add-fav-note" component={AddFavNote} /> */}
 
-          <Route path="/add-fav-note" component={AddFavNote} />
+          < Route
+            path="/add-fav-note"
+            render={routeProps => {
 
-          {/* <Route path="/favpark" component={FavParkPage} /> */}
+              return <AddFavNote
+                history={routeProps.history}
+                favParks={this.state.favParks}
+
+              // logInState={logInState}
+              // doFavPage={false}
+              />
+            }} />
 
 
 
           < Route
             path="/favpark"
             render={routeProps => {
-
-              return (
-                <FavParkPage />
-              )
-              // return null;
-            }}
-          />
+              return <FavParkPage />
+            }} />
 
           < Route
             path="/logout"
@@ -339,8 +381,6 @@ class App extends Component {
           />
 
           <Route path="/registration" component={RegistrationPage} />
-
-          {/* todo - add page not found page */}
 
         </MainContext.Provider>
       </div >

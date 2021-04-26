@@ -18,21 +18,28 @@ const STORE = {
 
   ],
 
-  parks: {
-    'a': { id: 'a', title: 'First card', content: 'lorem ipsum' },
-    'b': { id: 'b', title: 'Second card', content: 'lorem ipsum' },
-    'c': { id: 'c', title: 'Third card', content: 'lorem ipsum' },
-    'd': { id: 'd', title: 'Fourth card', content: 'lorem ipsum' },
-    'e': { id: 'e', title: 'Fifth card', content: 'lorem ipsum' },
-    'f': { id: 'f', title: 'Sixth card', content: 'lorem ipsum' },
-    'g': { id: 'g', title: 'Seventh card', content: 'lorem ipsum' },
-    'h': { id: 'h', title: 'Eighth card', content: 'lorem ipsum' },
-    'i': { id: 'i', title: 'Ninth card', content: 'lorem ipsum' },
-    'j': { id: 'j', title: 'Tenth card', content: 'lorem ipsum' },
-    'k': { id: 'k', title: 'Eleventh card', content: 'lorem ipsum' },
-    'l': { id: 'l', title: 'Twelfth card', content: 'lorem ipsum' },
-    'm': { id: 'm', title: 'Thirteenth card', content: 'lorem ipsum' },
-  },
+  favParks: [
+    {
+      parkCode: "acad",
+      stateCode: "ME",
+      parkName: "Acadia National Park",
+      rating: 1,
+      note: "note for park 1",
+      stateName: "",
+      activity: "Biking",
+      stopNumber: 1,
+    },
+    {
+      parkCode: "appa",
+      stateCode: "WV",
+      parkName: "Appalachian National Scenic Trail",
+      rating: 2,
+      note: "note for park 2",
+      stateName: "",
+      activity: "All",
+      stopNumber: 2,
+    }
+  ],
 
 
   stateOptions: [
@@ -385,11 +392,11 @@ const STORE = {
       label: "Activity",
       selected: 0,
     },
-    {
-      label: "Stop Number",
-      selected: 0,
-    },
+    // {
+    //   label: "Stop Number",
+    //   selected: 0,
+    // },
   ],
 }
 export default STORE;
-
+//
