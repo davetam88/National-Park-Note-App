@@ -3,42 +3,75 @@ const STORE = {
     {
       id: '1',
       username: 'user1',
-      password: '11'
+      password: '11',
+      saveParkIds: [1, 2]
     },
     {
       id: '2',
       username: 'user2',
-      password: '22'
+      password: '22',
+      saveParkIds: []
     },
     {
       id: '3',
       username: 'demo',
-      password: 'pwdemo'
+      password: 'pwdemo',
+      saveParkIds: [3, 4]
     },
-
+    {
+      id: '4',
+      username: 'Demo',
+      password: 'pwdemo',
+      saveParkIds: [3, 4]
+    },
   ],
 
   favParks: [
     {
+      saveParkId: 1,
       parkCode: "acad",
       stateCode: "ME",
       parkName: "Acadia National Park",
       rating: 1,
       note: "note for park 1",
-      stateName: "",
+      stateName: "Maine",
       activity: "Biking",
-      stopNumber: 1,
+      parkNumber: 1,
     },
     {
+      saveParkId: 2,
       parkCode: "appa",
       stateCode: "WV",
       parkName: "Appalachian National Scenic Trail",
       rating: 2,
       note: "note for park 2",
-      stateName: "",
+      stateName: "West Virginia",
       activity: "All",
-      stopNumber: 2,
-    }
+      parkNumber: 2,
+    },
+    {
+      saveParkId: 3,
+      parkCode: "alca",
+      stateCode: "CA",
+      parkName: "Alcatraz Island",
+      rating: 5,
+      note: "Note for Alcatraz Island Park",
+      stateName: "California",
+      activity: "Food",
+      parkNumber: 1,
+    },
+    {
+      saveParkId: 4,
+      parkCode: "goga",
+      stateCode: "CA",
+      parkName: "Golden Gate National Recreation Area",
+      rating: 5,
+      note: "Note for Golden Gate National Recreation Area Park",
+      stateName: "California",
+      activity: "Picnicking",
+      parkNumber: 2,
+    },
+
   ],
 
 

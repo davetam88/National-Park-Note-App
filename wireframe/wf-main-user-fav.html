@@ -65,7 +65,15 @@
             <h3>Natchez Trace Parkway</h3>
             <h3>Stop # 1, Rating:5</h3>
 
+
           </div>
+          <!-- no edit, show the text  -->
+          <!-- <textarea name="description" id="description" placeholder="description" value={this.state.description}
+            onChange={e=> this.descriptionChanged(e.target.value)}/>
+ -->
+          <textarea id="content" name="content" rows="4" cols="50" readonly
+            spellCheck="">abcdthis ia  test ofa test atat adfafaaf a </textarea>
+
           <img src="https://www.nps.gov/common/uploads/structured_data/3C80016C-1DD8-B71B-0B91B2FA75DF0C02.jpg"
             alt="Natchez Trace Parkway">
           <p>The Natchez Trace Parkway is a 444-mile recreational road and scenic drive through three states. It
@@ -136,6 +144,7 @@
             7002 U.S. Highway 80 West
             White Hall, AL 36040
           </p>
+
           <a href="wf-pictures.html">
             <button class="btn-generic 2" type="button">More Picture</button></a>
           <a href="wf-videos.html">

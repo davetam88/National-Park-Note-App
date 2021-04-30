@@ -1,5 +1,5 @@
 
-# National Park Trip Planner 
+# National Park Note APP
 
 All the information you need to know about your favorite National Parks in the United States in one easy to use APP. You can narrow down your search by State and Activities. Once your park(s) are located, you can see more pictures and/or Youtube videos for a particular park. Enjoy !
 

@@ -24,7 +24,7 @@ export default function AboutContent(props) {
             <br />
             To see a user demo
             acount,
-            enter 'demo' as the user and 'pwdemo' as the password in the
+            enter 'demo' or 'Demo' as the user and 'pwdemo' as the password in the
           <span> </span>
             <Link to='/login' >
               LOGIN
@@ -61,10 +61,10 @@ export default function AboutContent(props) {
 
           <p>The APP allows the user to create his/her own account; Once an account is created, the user would be
           able to
-          save the park's information, Assign a stop number, rate it with a ranking number and add their custom
+          save the park's information, rate it with a ranking number and add their custom
           notes, all
           the information will be stored in the APP and they can be used later. The user can sort these stored parks by
-          using the following criteria: <b>Park Name, Rating, State Name,   Activity, or Stop Number.</b> <br />
+          using the following criteria: <b>Park Name, Rating, State Name,   Activity.</b> <br />
             <br />
           </p>
         </div>

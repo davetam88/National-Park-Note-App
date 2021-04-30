@@ -48,6 +48,29 @@ em {
   color: #7100ff;
 }
 
+/*** fav-page */
+
+.fav-show-title {
+  height: 3.2rem;
+}
+
+.fav-show-stats {
+  font-size: 1.1rem;
+  color: #136e50;
+  padding-bottom: .3rem;
+}
+
+.fav-show-note {
+  background-color: rgb(193, 212, 193);
+  border: 2px solid rgb(61, 95, 61);
+  font-size: 1.05rem;
+  width: 350px;
+  /* font-size: 19px; */
+  color: #136e50;
+  font-style: italic;
+  border-radius: 7px;
+}
+
 /*** form */
 
 .cls-form {
@@ -325,7 +348,6 @@ main h2 {
 .group-container {
   border: 0px solid #F9F871;
   margin: 0 auto;
-  /***padding: 10px; */
   justify-content: space-evenly;
   display: flex;
 }

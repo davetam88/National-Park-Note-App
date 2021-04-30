@@ -37,14 +37,14 @@ class MainControlForm extends Component {
         <>
           <span> </span>
           or
-          < Link to='/favpark' >
+          < Link to='/fav-park' >
             <span style={styles}>
-              Go to My Favorite Parks Page
+              Go to Your Favorite Parks Page
            </span>
           </Link >
         </>
       )
-    else
+    else 
     {
       return (<></>)
     }
@@ -116,5 +116,4 @@ class MainControlForm extends Component {
   }
 }
 
-// export default MainControlForm;
 export default withRouter(MainControlForm);

@@ -8,8 +8,6 @@ import ParkList from './ParkList';
 class HomePage extends Component {
   static contextType = MainContext;
 
-
-
   render() {
     const { logInState, username } = this.context;
 

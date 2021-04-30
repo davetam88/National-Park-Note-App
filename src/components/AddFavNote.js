@@ -1,15 +1,16 @@
 import React, { useContext, useState } from 'react';
-
 import MainContext from '../MainContext';
 import '../App.css'
 import './FavForm.css'
+import { findUserByUsername } from './Helpers';
+
 
 export default function AddFavNote({ history, favParks }) {
+
   const favContext = useContext(MainContext)
   const [parkCode] = useState(favContext.parkCode)
   const [rating, setRating] = useState("")
   const [note, setNote] = useState("")
-
 
   let favParksNew = {
     parkCode: favContext.parkCode,
@@ -19,21 +20,39 @@ export default function AddFavNote({ history, favParks }) {
     note: "",
     stateName: "",
     activity: favContext.activity,
-    stopNumber: favParks.length,
+    parkNumber: 0,
   }
 
+  let userRecNew = {};
 
   let handleCancel = () => {
     history.push('/')
   };
 
   let handleSubmit = (e) => {
+    const { stateCode, stateOptions, users, username } = favContext;
+
+
+    const user = findUserByUsername(users, username);
+
     e.preventDefault();
+
+    // add to the end for now. stop number = park nubmer for now 
+    favParksNew.saveParkId = favContext.favParks.length + 1;
+    favParksNew.parkCode = parkCode;
+    // stateCode
+    // parkNumber
     favParksNew.rating = rating;
     favParksNew.note = note;
-    favParksNew.parkCode = parkCode;
-    favContext.AddFavNoteSubmitCB(favParksNew)
-    history.push('/')
+    favParksNew.stateName = findStateNameByCode(stateCode, stateOptions)
+    // activity
+    const parkNumber = user.saveParkIds.length + 1;
+    favParksNew.parkNumber = parkNumber;
+
+    user.saveParkIds.push(favParksNew.saveParkId);
+    userRecNew = user;
+    favContext.AddFavNoteSubmitCB(favParksNew, userRecNew)
+    history.push('/fav-park')
   }
 
   return (
@@ -93,3 +112,12 @@ export default function AddFavNote({ history, favParks }) {
 }
 
 
+function findStateNameByCode(stateCode, stateOptions) {
+  for (let idx = 0; idx < stateOptions.length; idx++)
+  {
+    if (stateOptions[idx].value === stateCode)
+    {
+      return stateOptions[idx].label;
+    }
+  }
+}

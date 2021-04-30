@@ -51,17 +51,15 @@ class MainControlForm extends Component {
 
 
   render() {
-
-    const { favOrderByCB, favOrderByOptoins } = this.context;
-
+    const { FavOrderByCB, favOrderByOptoins } = this.context;
     return (
       <>
         <h3 className="filter-title">
-          Sort Your Favorite Parks by The Filters Below
+          Sort Your Favorite Parks Using Buttons Below
         {this.renderGoFavLink()}
         </h3>
 
-        <div class="nav-myFav-radio-btn-container"> (
+        <div className="nav-myFav-radio-btn-container"> (
           {favOrderByOptoins.map((option, idx) => (
           <button key={idx} type="button"
             className=
@@ -69,7 +67,7 @@ class MainControlForm extends Component {
               ? "btn-generic-fav blue"
               : "btn-generic-fav green"
             }
-            onClick={e => favOrderByCB(idx)}  >
+            onClick={e => FavOrderByCB(idx)}  >
             {option.label}</button>
         ))}
         </div>
@@ -84,7 +82,4 @@ class MainControlForm extends Component {
 }
 
 export default MainControlForm;
-// export default withRouter(MainControlForm);
-
-
 

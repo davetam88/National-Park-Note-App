@@ -1,10 +1,7 @@
-
 import React, { Component } from 'react';
 import MainContext from '../MainContext';
 import '../App.css'
 import './FavForm.css'
-// import STORE from '../STORE'
-
 
 class RegistrationPage extends Component {
   static contextType = MainContext;
@@ -99,11 +96,7 @@ class RegistrationPage extends Component {
       })
       if (!usernametaken)
       {
-
         this.context.RegistrationCB(username, password, idx);
-        // this.context.usernamex = username;
-        // this.context.password = password;
-
         this.props.history.push("/");
       }
       // post to api
@@ -119,7 +112,6 @@ class RegistrationPage extends Component {
 
   render() {
     const { errorMsg } = this.state;
-
     return (
       <main>
         <div class="FavPark-form-container">
@@ -143,7 +135,6 @@ class RegistrationPage extends Component {
               onChange={(e) => this.updatePassword1(e.target.value)}
               required="" />
             <br />
-
             <label for="password2" class="label">Re-type Password:</label>
             <input type="password" id="password2" name="password2"
               placeholder="Password"
@@ -154,24 +145,17 @@ class RegistrationPage extends Component {
             <br />
             <div class="error-message-login">{errorMsg}</div>
             <br />
-
-
             <div class="filter-button-section">
               <div class="FavPark-form-buttons-wrapper">
-
                 <button type="submit">Submit</button>
-
                 <button type='button' onClick={this.handleCancel}>
                   Cancel</button>
-
               </div>
             </div>
-
           </form>
         </div>
       </main >
     );
   }
 }
-
 export default RegistrationPage;

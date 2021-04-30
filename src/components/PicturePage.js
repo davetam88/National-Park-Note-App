@@ -9,21 +9,28 @@ class PicturePage extends Component {
 
   static contextType = MainContext;
 
-  // constructor(props) {
-  //   super(props);
-  // }
-
-
-
   render() {
+    const { history, parkName, parkData } = this.props;
 
     return (
       <>
-        <MainControl props="this.props" />
-        <NavBar />
+        <MainControl
+          history={history}
+          logInState={this.context.logInState}
+          doFavPage={this.context.doFavPage}
+          username={this.context.username}
+        />
+        <NavBar
+          username={this.context.username}
+          logInState={this.context.logInState}
+        />
         <main>
           <section id="js-results" className="bg-main-display cls-results">
-            <PictureList />
+            <PictureList history={history}
+              doFavPage={this.context.doFavPage}
+              parkName={parkName}
+              parkData={parkData}
+            />
           </section>
         </main>
       </>

@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import FavParkItem from "./FavParkItem";
+import VideoItem from "./VideoItem";
 import MainContext from '../MainContext';
 import '../App.css'
 
-class FavParkList extends Component {
-
+class VideoList extends Component {
   static contextType = MainContext;
-
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +12,7 @@ class FavParkList extends Component {
   }
 
   render() {
-    const { data, history, favParks } = this.props;
+    const { data, parkName, history } = this.props;
 
     if (Object.keys(data).length === 0)
     {
@@ -23,17 +21,20 @@ class FavParkList extends Component {
         </>
       )
     }
-    const dataLen = data.data.length;
+    const numVideos = data.items.length;
 
     return (
       <>
         <h3 className="overlay-section-heading">
-          My Favorvite Parks <em>({dataLen})</em><br />
+          There Are <em>{numVideos}</em> Videos for <em>{parkName}</em><br /> Click on The Picture to Watch, Enjoy!!
         </h3>
         <div className="group-container wrap">
           {
-            data.data.map((element, idx) => (
-              <FavParkItem key={idx} itemData={element} history={history} favParks={favParks} />
+            data.items.map((item, idx) => (
+              <VideoItem key={idx}
+                item={item}
+                history={history}
+              />
             ))
           }
         </div>
@@ -42,4 +43,4 @@ class FavParkList extends Component {
   }
 }
 
-export default FavParkList;
+export default VideoList;

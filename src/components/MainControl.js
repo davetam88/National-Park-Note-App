@@ -1,18 +1,10 @@
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-// import MainContext from '../MainContext';
 import '../App.css'
-
 import MainControlForm from './MainControlForm';
 import FavControlForm from './FavControlForm';
-// import NavBar from "./NavBar";
-
-
-
 
 class MainControl extends Component {
-
   renderLoginUser(logInState) {
 
     let styles = {
@@ -21,12 +13,11 @@ class MainControl extends Component {
       'color': 'limegreen',
     };
 
-
     if (logInState === false)
       return (
         <>
           <span style={{ paddingLeft: 12 }}>
-            Plan Your Trip by
+            Save Your Favorite Parks by
           </span>
 
           < Link to='/registration' >
@@ -58,11 +49,22 @@ class MainControl extends Component {
     return (
       <>
         <header className="bg-callout">
-          <h1>National Park Trip Planner</h1>
+          <h1>National Park Note APP
+            </h1>
           <div className='no-login'>
-            <h2 className="app-title"> All The Information You Need to Know About Your Favorite National Park in One Easy to Use App.
-            Narrow Down Your Search by State And Activities.
-            {this.renderLoginUser(logInState)}
+
+            <h2 className="app-title">
+              {doFavPage
+                ? <div>
+                  Visually Explore Your Favrite Park(S) with 'More Picture' or 'Video' Buttons, or Edit The Parks With Modify or Delete Buttons.
+                  </div>
+                : <div>
+                  All The Information You Need to Know About Your Favorite National Park in One Easy to Use App.
+                  Narrow Down Your Search by State And Activities.
+            </div>
+              }
+
+              {this.renderLoginUser(logInState)}
             </h2>
           </div>
 
@@ -81,11 +83,6 @@ class MainControl extends Component {
   }
 }
 
-MainControl.propTypes = {
-  /*
-    bookmarks: PropTypes.arrayOf(PropTypes.object)
-  */
-};
 
 export default MainControl;
 
