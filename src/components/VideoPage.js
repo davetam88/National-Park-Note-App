@@ -19,15 +19,15 @@ export default function VideoPage(props) {
   const favContext = useContext(MainContext)
 
   useEffect(() => {
-    console.log(`****** in video useEffect`); // dbg..
-    console.log(`use effect parkName :>> `, parkName); // dbg..
     let parkNameTemp = parkName;
-
-    parkNameTemp = localStorage.getItem("park");
+    if (!parkName)
+    {
+      parkNameTemp = localStorage.getItem("park");
+    }
     const api_key = 'AIzaSyBGEUctjgxxWPlw7PsY4TaLe01zwsGg3p0'; // 2 
     const searchURL = `https://www.googleapis.com/youtube/v3/search`;
     const searchString = parkNameTemp.replace(/ /g, "+");
-    let maxResults = 4; // don't get too many
+      let maxResults = 5; // don't get too many
 
     const params = {
       key: api_key,
@@ -37,6 +37,7 @@ export default function VideoPage(props) {
     };
     const queryString = formatParkInfoQueryParams(params)
     let videoURL = searchURL + '?' + queryString;
+
     let useLocalData = 0;
     if (useLocalData)
     {
