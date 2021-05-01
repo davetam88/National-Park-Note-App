@@ -35,15 +35,17 @@ class App extends Component {
     parkCode: "",
     parkData: "",
 
-    username: "",
-    logInState: false,
-    //    username: "Demo",
-    //    logInState: true,
+    //    username: "",
+    //    logInState: false,
+    username: "user1",
+    logInState: true,
     password: "",
+
     savedPark: false,
     fetchErrMsg: "",
     displayFavPage: false,
     // save park name and code
+
   };
 
   ActivityCB = (activity) => {
@@ -71,7 +73,7 @@ class App extends Component {
       id: this.state.users.length,
       username: username,
       password: password,
-      saveParkIds: [],
+      favParkIds: [],
     }
 
     this.setState({
@@ -82,6 +84,7 @@ class App extends Component {
       username: username,
       logInState: true,
     })
+
     // store information to database
   }
 
@@ -225,11 +228,14 @@ class App extends Component {
         this.setState({
           fetchErrMsg: errmsg,
         })
+        //        alert(errmsg);
       });
   }
 
 
+
   render() {
+
     const contextValue = {
       history: this.props.history,
       fetchDataMainPark: this.state.fetchDataMainPark,
@@ -305,6 +311,7 @@ class App extends Component {
               />
             }} />
 
+
           < Route
             path="/add-fav-note"
             render={routeProps => {
@@ -330,6 +337,7 @@ class App extends Component {
               return null;
             }}
           />
+
 
         </MainContext.Provider>
       </div >

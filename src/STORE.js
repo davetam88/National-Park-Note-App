@@ -4,53 +4,53 @@ const STORE = {
       id: '1',
       username: 'user1',
       password: '11',
-      saveParkIds: [1, 2]
+      favParkIds: [1, 2]
     },
     {
       id: '2',
       username: 'user2',
       password: '22',
-      saveParkIds: []
+      favParkIds: []
     },
     {
       id: '3',
       username: 'demo',
       password: 'pwdemo',
-      saveParkIds: [3, 4]
+      favParkIds: [3, 4]
     },
     {
       id: '4',
       username: 'Demo',
       password: 'pwdemo',
-      saveParkIds: [3, 4]
+      favParkIds: [3, 4]
     },
   ],
 
   favParks: [
     {
-      saveParkId: 1,
+      favParkId: 1,
       parkCode: "acad",
       stateCode: "ME",
       parkName: "Acadia National Park",
       rating: 1,
       note: "note for park 1",
       stateName: "Maine",
-      activity: "Biking",
+      activity: "Arts and Culture",
       parkNumber: 1,
     },
     {
-      saveParkId: 2,
-      parkCode: "appa",
-      stateCode: "WV",
-      parkName: "Appalachian National Scenic Trail",
+      favParkId: 2,
+      parkCode: "bicr",
+      stateCode: "AL",
+      parkName: "Birmingham Civil Rights National Monument",
       rating: 2,
-      note: "note for park 2",
-      stateName: "West Virginia",
-      activity: "All",
+      note: "note for Birmingham Civil Rights National Monument park",
+      stateName: "Alabama",
+      activity: "Biking",
       parkNumber: 2,
     },
     {
-      saveParkId: 3,
+      favParkId: 3,
       parkCode: "alca",
       stateCode: "CA",
       parkName: "Alcatraz Island",
@@ -61,7 +61,7 @@ const STORE = {
       parkNumber: 1,
     },
     {
-      saveParkId: 4,
+      favParkId: 4,
       parkCode: "goga",
       stateCode: "CA",
       parkName: "Golden Gate National Recreation Area",

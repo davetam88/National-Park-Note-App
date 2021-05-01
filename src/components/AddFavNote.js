@@ -38,7 +38,7 @@ export default function AddFavNote({ history, favParks }) {
     e.preventDefault();
 
     // add to the end for now. stop number = park nubmer for now 
-    favParksNew.saveParkId = favContext.favParks.length + 1;
+    favParksNew.favParkId = favContext.favParks.length + 1;
     favParksNew.parkCode = parkCode;
     // stateCode
     // parkNumber
@@ -46,10 +46,10 @@ export default function AddFavNote({ history, favParks }) {
     favParksNew.note = note;
     favParksNew.stateName = findStateNameByCode(stateCode, stateOptions)
     // activity
-    const parkNumber = user.saveParkIds.length + 1;
+    const parkNumber = user.favParkIds.length + 1;
     favParksNew.parkNumber = parkNumber;
 
-    user.saveParkIds.push(favParksNew.saveParkId);
+    user.favParkIds.push(favParksNew.favParkId);
     userRecNew = user;
     favContext.AddFavNoteSubmitCB(favParksNew, userRecNew)
     history.push('/fav-park')
@@ -110,7 +110,6 @@ export default function AddFavNote({ history, favParks }) {
     </>
   );
 }
-
 
 function findStateNameByCode(stateCode, stateOptions) {
   for (let idx = 0; idx < stateOptions.length; idx++)

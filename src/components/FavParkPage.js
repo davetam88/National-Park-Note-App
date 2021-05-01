@@ -22,7 +22,7 @@ export default function FavParkPage(props) {
     const { favParks, users, username } = favContext
 
     const user = findUserByUsername(users, username);
-    let parkCodeList = getParkNamesBySavedParkIds(favParks, user.saveParkIds)
+    let parkCodeList = getParkNamesBySavedParkIds(favParks, user.favParkIds)
 
 
     if (parkCodeList === "")
@@ -89,13 +89,13 @@ export default function FavParkPage(props) {
   }
 }
 
-function getParkNamesBySavedParkIds(parks, saveParkIds) {
+function getParkNamesBySavedParkIds(parks, favParkIds) {
 
   let parkCodeTemp = [];
   let idz = 0;
   for (let idx = 0; idx < parks.length; idx++)
-    for (let idy = 0; idy < saveParkIds.length; idy++)
-      if (parks[idx].saveParkId === saveParkIds[idy])
+    for (let idy = 0; idy < favParkIds.length; idy++)
+      if (parks[idx].favParkId === favParkIds[idy])
       {
         parkCodeTemp[idz++] = parks[idx].parkCode;
         break;
