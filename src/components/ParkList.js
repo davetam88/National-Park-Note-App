@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ParkItem from "./ParkItem";
 import MainContext from '../MainContext';
 import '../App.css'
+import { findFavParksForUser } from './Helpers';
 
 class ParkList extends Component {
   static contextType = MainContext;
@@ -10,43 +11,42 @@ class ParkList extends Component {
     super(props);
 
     this.state = {
-      // stateCode: "AL",
       // activity: "All",
-      fetchDataMainPark: {},
-      NewData: {},
-      EntryData: {},
     }
   }
 
   render() {
-    const { fetchDataMainPark } = this.context;
-    const { stateCode, activity } = this.context;
+    const { favParks, logInState, stateCode, activity, fetchParkData, userRec } = this.context;
 
-    if (Object.keys(fetchDataMainPark).length === 0)
+    if (Object.keys(fetchParkData).length === 0)
     {
       return (
         <>
         </>
       )
     }
-    const dataLen = fetchDataMainPark.data.length;
+
+    const dataLen = fetchParkData.data.length;
+    let userFavParks = {};
+    if (logInState) userFavParks = findFavParksForUser(favParks, userRec.userid);
+
 
     return (
       <>
-
         <h3 className="overlay-section-heading">
-
           There Are <em>{dataLen}</em> Parks That Matches Your Search Criteria<br />
           <em>StateCode = {stateCode}  :  Activity = {activity}</em>
         </h3>
         <div className="group-container wrap">
           {
-            fetchDataMainPark.data.map((element, idx) => (
-              <ParkItem key={idx} itemData={element} history={this.props.history} />
+            fetchParkData.data.map((respData, idx) => (
+              <ParkItem key={idx} history={this.props.history}
+                userFavParks={userFavParks}
+                itemData={respData}
+              />
             ))
           }
         </div>
-        {/* {this.displayParksInfo(stateCode, activity)} */}
       </>
     );
   }

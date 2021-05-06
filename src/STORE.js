@@ -1,34 +1,30 @@
 const STORE = {
   users: [
     {
-      id: '1',
+      userid: 1,
       username: 'user1',
       password: '11',
       favParkIds: [1, 2]
     },
     {
-      id: '2',
+      userid: 2,
       username: 'user2',
       password: '22',
       favParkIds: []
     },
     {
-      id: '3',
-      username: 'demo',
-      password: 'pwdemo',
-      favParkIds: [3, 4]
-    },
-    {
-      id: '4',
+      userid: 3,
       username: 'Demo',
-      password: 'pwdemo',
-      favParkIds: [3, 4]
+      password: 'dd',
+      // password: 'pwdemo',
+      favParkIds: [3, 4, 5]
     },
   ],
 
   favParks: [
     {
       favParkId: 1,
+      userid: 1,
       parkCode: "acad",
       stateCode: "ME",
       parkName: "Acadia National Park",
@@ -37,9 +33,11 @@ const STORE = {
       stateName: "Maine",
       activity: "Arts and Culture",
       parkNumber: 1,
+      parkData: {},
     },
     {
       favParkId: 2,
+      userid: 1,
       parkCode: "bicr",
       stateCode: "AL",
       parkName: "Birmingham Civil Rights National Monument",
@@ -48,30 +46,47 @@ const STORE = {
       stateName: "Alabama",
       activity: "Biking",
       parkNumber: 2,
+      parkData: {},
     },
     {
       favParkId: 3,
+      userid: 3,
       parkCode: "alca",
       stateCode: "CA",
       parkName: "Alcatraz Island",
-      rating: 5,
+      rating: 3,
       note: "Note for Alcatraz Island Park",
       stateName: "California",
       activity: "Food",
       parkNumber: 1,
+      parkData: {},
     },
     {
       favParkId: 4,
+      userid: 3,
       parkCode: "goga",
       stateCode: "CA",
       parkName: "Golden Gate National Recreation Area",
-      rating: 5,
+      rating: 4,
       note: "Note for Golden Gate National Recreation Area Park",
       stateName: "California",
       activity: "Picnicking",
       parkNumber: 2,
+      parkData: {},
     },
-
+    {
+      favParkId: 5,
+      userid: 3,
+      parkCode: "frri",
+      stateCode: "AL",
+      parkName: "Freedom Riders National Monument",
+      rating: 5,
+      note: "Note for Freedom Riders National Monument",
+      stateName: "Alabama",
+      activity: "Guided Tours",
+      parkNumber: 3,
+      parkData: {},
+    },
   ],
 
 
@@ -176,6 +191,7 @@ const STORE = {
       label: "Mississippi",
       value: "MS",
     },
+
     {
       label: "Missouri",
       value: "MO",
@@ -407,28 +423,32 @@ const STORE = {
     },
   ],
 
-
   favOrderByOptoins: [
     {
+      label: "Park Number",
+      sortName: "parkNumber",
+      selected: 0,
+    },
+    {
       label: "Park Name",
+      sortName: "parkName",
       selected: 1,
     },
     {
       label: "Rating",
+      sortName: "rating",
       selected: 0,
     },
     {
       label: "State Name",
+      sortName: "stateName",
       selected: 0,
     },
     {
       label: "Activity",
+      sortName: "activity",
       selected: 0,
     },
-    // {
-    //   label: "Stop Number",
-    //   selected: 0,
-    // },
   ],
 }
 export default STORE;

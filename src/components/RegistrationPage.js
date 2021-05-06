@@ -6,20 +6,15 @@ import './FavForm.css'
 class RegistrationPage extends Component {
   static contextType = MainContext;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      password1: "",
-      password2: "",
-      errorMsg: "",
-    }
+  state = {
+    errorMsg: "",
   }
 
   static defaultProps = {
     history: {
       push: () => { },
     },
+
   };
 
 

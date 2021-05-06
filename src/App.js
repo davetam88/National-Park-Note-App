@@ -10,7 +10,7 @@ import RegistrationPage from './components/RegistrationPage';
 import AddFavNote from './components/AddFavNote';
 import VideoPage from './components/VideoPage';
 import STORE from './STORE'
-
+import { findUserRecByUsername } from './components/Helpers';
 import "./App.css";
 
 class App extends Component {
@@ -18,8 +18,7 @@ class App extends Component {
   searchURL = 'https://developer.nps.gov/api/v1/parks';
 
   state = {
-    fetchDataMainPark: {},
-    fetchDataFavPark: {},
+    fetchParkData: {},
 
     users: STORE.users,
     favParks: STORE.favParks,
@@ -27,7 +26,8 @@ class App extends Component {
     activityOptions: STORE.activityOptions,
     favOrderByOptoins: STORE.favOrderByOptoins,
 
-    favOrderBySelected: 1,
+    favOrderByBtnLabel: "Park Number",
+    favOrderBySortName: "parkNumber",
 
     activity: "All",
     stateCode: "AL",
@@ -35,11 +35,9 @@ class App extends Component {
     parkCode: "",
     parkData: "",
 
-    //    username: "",
-    //    logInState: false,
-    username: "user1",
-    logInState: true,
-    password: "",
+    username: "Demo",
+    logInState: false,
+    userRec: {},
 
     savedPark: false,
     fetchErrMsg: "",
@@ -66,15 +64,17 @@ class App extends Component {
     // this.state.activity = activity;
   }
 
+
   RegistrationCB = (username, password, idx) => {
-
-
     let currentUser = {
-      id: this.state.users.length,
+      // this id could be generate by sql 
+      userid: this.state.users.length + 1,
       username: username,
       password: password,
       favParkIds: [],
     }
+
+    // const userRec = findUserRecByUsername(this.state.users, username);
 
     this.setState({
       users: [
@@ -82,6 +82,7 @@ class App extends Component {
         currentUser
       ],
       username: username,
+      userRec: currentUser,
       logInState: true,
     })
 
@@ -90,10 +91,14 @@ class App extends Component {
 
   LoginCB = (username, password) => {
 
+    // initialzie order by buttons, for new user.
     var initSelect = JSON.parse(JSON.stringify(this.state.favOrderByOptoins));
     for (let idx = 0; idx < initSelect.length; idx++)
       initSelect[idx].selected = 0
     initSelect[0].selected = 1;
+
+    // for getting the favPark ids.
+    const userRec = findUserRecByUsername(this.state.users, username);
 
     this.setState({
       username: username,
@@ -101,9 +106,11 @@ class App extends Component {
       logInState: true,
       favOrderByOptoins: initSelect,
       favOrderBySelected: 0,
+      userRec: userRec
     })
     // store information to database
   }
+
 
   HandleLogout() {
     this.setState({
@@ -111,7 +118,8 @@ class App extends Component {
     })
   }
 
-  FavOrderByCB = (idx) => {
+  FavOrderByCB = (idx, label, sortName) => {
+
     const oldIdx = this.state.favOrderBySelected;
     var newSelect = JSON.parse(JSON.stringify(this.state.favOrderByOptoins));
     newSelect[idx].selected = 1;
@@ -120,6 +128,8 @@ class App extends Component {
     this.setState({
       favOrderByOptoins: newSelect,
       favOrderBySelected: idx,
+      favOrderByBtnLabel: label,
+      favOrderBySortName: sortName
     });
   }
 
@@ -137,7 +147,7 @@ class App extends Component {
       favParks: [
         ...this.state.favParks,
         favPark
-      ],
+      ]
     })
   }
 
@@ -152,8 +162,8 @@ class App extends Component {
   ViewVideoBtnCB = (history, parkName) => {
     this.setState({ parkName: parkName });
     history.push('/video-page')
-  }
 
+  }
 
   ViewPictureBtnCB = (history, parkName, parkData) => {
 
@@ -164,6 +174,28 @@ class App extends Component {
     history.push('/picture-page')
   }
 
+  DeleteFavParkCB = (favParkIdEntry, userid) => {
+
+    const favParksNew = this.state.favParks.filter(fp => {
+      return (fp.favParkId !== favParkIdEntry)
+    })
+
+    let userRecNew = this.state.userRec;
+    const favParkIdsNew = userRecNew.favParkIds.filter(favParkId => {
+      return (
+        (favParkId !== favParkIdEntry)
+      )
+    })
+    userRecNew.favParkIds = favParkIdsNew;
+
+
+    this.setState({
+      favParks: favParksNew,
+      userRec: userRecNew,
+      // userFavParks: userFavParks,
+    })
+
+  }
 
   FetchFavParkInfosCB = (firsTime) => {
     this.fetchFavParkInfosExec("hobe", 'All')
@@ -181,6 +213,7 @@ class App extends Component {
       .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&');
   }
+
 
   fetchParkInfos(stateCode, activity, maxResults = 4) {
     this.setState({ fetchErrMsg: "" })
@@ -214,12 +247,12 @@ class App extends Component {
         let errmsg = `${response.status} : ${response.statusText}`;
         throw new Error(errmsg);
       })
-      .then(fetchDataMainPark => {
+      .then(fetchParkData => {
 
         this.setState({
           activity: activity,
           stateCode: stateCode,
-          fetchDataMainPark: fetchDataMainPark
+          fetchParkData: fetchParkData
         })
 
       })
@@ -235,17 +268,18 @@ class App extends Component {
 
 
   render() {
-
     const contextValue = {
       history: this.props.history,
-      fetchDataMainPark: this.state.fetchDataMainPark,
-      fetchDataFavPark: this.state.fetchDataFavPark,
+      fetchParkData: this.state.fetchParkData,
 
       users: this.state.users,
       favParks: this.state.favParks,
       stateOptions: this.state.stateOptions,
       activityOptions: this.state.activityOptions,
       favOrderByOptoins: this.state.favOrderByOptoins,
+      favOrderByBtnLabel: this.state.favOrderByBtnLabel,
+      favOrderBySortName: this.state.favOrderBySortName,
+
 
       activity: this.state.activity,
       stateCode: this.state.stateCode,
@@ -255,8 +289,9 @@ class App extends Component {
 
       username: this.state.username,
       password: this.state.password,
-
+      userRec: this.state.userRec,
       logInState: this.state.logInState,
+
       savedPark: this.state.savedPark,
       fetchErrMsg: this.state.fetchErrMsg,
       displayFavPage: this.state.displayFavPage,
@@ -273,6 +308,7 @@ class App extends Component {
       AddFavNoteSubmitCB: this.AddFavNoteSubmitCB,
       ViewVideoBtnCB: this.ViewVideoBtnCB,
       ViewPictureBtnCB: this.ViewPictureBtnCB,
+      DeleteFavParkCB: this.DeleteFavParkCB,
 
       FetchFavParkInfosCB: this.FetchFavParkInfosCB,
     }

@@ -54,9 +54,14 @@ em {
   height: 3.2rem;
 }
 
+.fav-show-orderby-title {
+  font-size: 1.1rem;
+  color: #7100ff;
+}
+
 .fav-show-stats {
   font-size: 1.1rem;
-  color: #136e50;
+  color: #7100ff;
   padding-bottom: .3rem;
 }
 

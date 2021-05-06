@@ -1,42 +1,43 @@
-import React, {
-  useState,
-  useContext,
-  useEffect
-} from "react";
-
+import React, { Component } from 'react';
+import '../App.css'
 import MainControl from './MainControl';
 import NavBar from './NavBar';
 import '../App.css'
 import './FavForm.css'
 import MainContext from '../MainContext';
 import FavParkList from "./FavParkList";
-import { findUserByUsername } from './Helpers';
+import { findFavParksForUser } from './Helpers';
 
-export default function FavParkPage(props) {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState("");
-  const favContext = useContext(MainContext)
-  const { parks } = favContext
+class FavParkPage extends Component {
+  static contextType = MainContext;
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: {},
+      error: "",
+    }
+  }
 
-  useEffect(() => {
-    const { favParks, users, username } = favContext
+  componentDidMount() {
+    const { favParks, userRec } = this.context;
 
-    const user = findUserByUsername(users, username);
-    let parkCodeList = getParkNamesBySavedParkIds(favParks, user.favParkIds)
+    // sql
+    const userFavParks = findFavParksForUser(favParks, userRec.userid);
+
+    const parkCodeList = userFavParks.map(park => park.parkCode);
+    parkCodeList.join(',');
 
 
-    if (parkCodeList === "")
+    if (!userFavParks.length)
     {
-      let errorMsg = `You Have Not Save Any Park Yet`;
-      setError(errorMsg)
+      // let errorMsg = `You Have Not Save Any Park Yet`;
+      // this.setState({ error: errorMsg });
     }
 
     let searchURL = 'https://developer.nps.gov/api/v1/parks';
     let api_key = 'nC3wQoBberQTpH9oGy9RZd3WPZRbbUw3eTCblSCb';
     let limit = 20;
     let parkURL = `${searchURL}?parkCode=${parkCodeList}&limit=${limit}&api_key=${api_key}&`;
-
-    /*** fetch data */
 
     fetch(parkURL)
       .then(response => {
@@ -45,66 +46,62 @@ export default function FavParkPage(props) {
         let errorMsg = `${response.status} : ${response.statusText}`;
         throw new Error(errorMsg);
       })
-      .then(setData)
+      .then(data => {
+        this.setState(data)
+      })
       .catch(err => {
         let errorMsg = `Something went wrong, ErrorMsg/ErrorCode : ${err.message}`;
-        setError(errorMsg)
+        this.setState(errorMsg);
       });
-  }, [favContext]);
+
+  }
+
+  render() {
+    // const { favParks, userRec } = this.context;
+    const { history } = this.props;
 
 
-  if (data || error)
-  {
+    if (Object.keys(this.state.data).length === 0)
+    {
+      return (
+        <>
+        </>
+      )
+    }
+
     return (
       <>
         <MainControl
-          history={props.history}
-          logInState={favContext.logInState}
+          history={history}
+          logInState={this.context.logInState}
           doFavPage={true}
-          username={favContext.username}
+          username={this.context.username}
         />
         <NavBar
-          username={favContext.username}
-          logInState={favContext.logInState}
+          username={this.context.username}
+          logInState={this.context.logInState}
         />
         <main>
           <section id="js-results" className="bg-main-display cls-results">
             {/* error or content */}
-            {error
+            {this.state.error
               ?
-              <p style={{
+              < p style={{
                 fontSize: '1.2em', color: "red"
-              }}>{error}</p>
+              }}>{this.state.error}</p>
               :
-              <FavParkList history={props.history} data={data} parks={parks}
+              <FavParkList
+                dataList={this.state.data}
+                history={this.props.history}
               />
             }
           </section>
         </main>
       </>
     );
-  } else
-  {
-    return null;
   }
 }
 
-function getParkNamesBySavedParkIds(parks, favParkIds) {
-
-  let parkCodeTemp = [];
-  let idz = 0;
-  for (let idx = 0; idx < parks.length; idx++)
-    for (let idy = 0; idy < favParkIds.length; idy++)
-      if (parks[idx].favParkId === favParkIds[idy])
-      {
-        parkCodeTemp[idz++] = parks[idx].parkCode;
-        break;
-      }
-  if (idz)
-    return (parkCodeTemp.join(","))
-  else
-    return ("")
-}
-
+export default FavParkPage;
 
 

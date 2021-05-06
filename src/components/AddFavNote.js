@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import MainContext from '../MainContext';
 import '../App.css'
 import './FavForm.css'
-import { findUserByUsername } from './Helpers';
+import { findUserRecByUsername } from './Helpers';
 
 
 export default function AddFavNote({ history, favParks }) {
@@ -33,24 +33,25 @@ export default function AddFavNote({ history, favParks }) {
     const { stateCode, stateOptions, users, username } = favContext;
 
 
-    const user = findUserByUsername(users, username);
+    const user = findUserRecByUsername(users, username);
 
     e.preventDefault();
+
 
     // add to the end for now. stop number = park nubmer for now 
     favParksNew.favParkId = favContext.favParks.length + 1;
     favParksNew.parkCode = parkCode;
-    // stateCode
-    // parkNumber
+    favParksNew.stateCode = stateCode;
     favParksNew.rating = rating;
     favParksNew.note = note;
     favParksNew.stateName = findStateNameByCode(stateCode, stateOptions)
+    favParksNew.userid = user.userid;
     // activity
-    const parkNumber = user.favParkIds.length + 1;
-    favParksNew.parkNumber = parkNumber;
-
+    favParksNew.parkNumber = user.favParkIds.length + 1;
     user.favParkIds.push(favParksNew.favParkId);
+
     userRecNew = user;
+
     favContext.AddFavNoteSubmitCB(favParksNew, userRecNew)
     history.push('/fav-park')
   }

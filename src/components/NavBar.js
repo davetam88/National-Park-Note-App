@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import MainContext from '../MainContext';
 import '../App.css'
+import { findFavParksForUser } from './Helpers';
 
 class NavBar extends Component {
   static contextType = MainContext;
@@ -12,7 +13,9 @@ class NavBar extends Component {
     }
   }
 
+
   renderLoginLinks(logInState, username) {
+    const { favParks, userRec } = this.context;
     if (!logInState)
     {
       return (
@@ -28,6 +31,8 @@ class NavBar extends Component {
       )
     } else
     {
+      const userFavParks = findFavParksForUser(favParks, userRec.userid);
+      let numFavParks = userFavParks.length;
       return (
         <>
           <Link to='/logout'>
@@ -35,6 +40,9 @@ class NavBar extends Component {
           </Link>
           <span className="username">
             {username}
+          </span>
+          <span className="username">
+            FP={numFavParks}
           </span>
         </>
       )

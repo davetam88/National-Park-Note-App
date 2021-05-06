@@ -2,14 +2,15 @@ import React from 'react'
 
 
 const MainContext = React.createContext({
-  fetchDataMainPark: {},
-  fetchDataFavPark: {},
+  fetchParkData: {},
   users: [],
   favParks: [],
 
   activityOptions: [],
   stateOptions: [],
   favOrderByOptoins: [],
+  favOrderByBtnLabel: "",
+  favOrderBySortName: "",
 
   error: null,
 
@@ -21,8 +22,9 @@ const MainContext = React.createContext({
 
   username: "",
   password: "",
-
+  userRec: {},
   logInState: false,
+
   savedPark: false,
   fetchErrMsg: "",
   displayFavPage: "",
@@ -39,6 +41,7 @@ const MainContext = React.createContext({
   AddFavNoteSubmitCB: () => { },
   ViewVideoBtnCB: () => { },
   ViewPictureBtnCB: () => { },
+  DeleteFavParkCB: () => { },
 
   FetchFavParkInfosCB: () => { },
 })

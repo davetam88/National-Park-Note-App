@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MainContext from '../MainContext';
-import { findFavParkByParkCode } from './Helpers';
 import '../App.css'
 
 class ParkItem extends Component {
@@ -15,27 +14,31 @@ class ParkItem extends Component {
   }
 
   handleModifyButton = () => {
-    this.props.history.push('/')
+    // this.props.history.push('/')
   };
 
-  handleDeleteButton = () => {
-  };
-
-  renderButtons(parkCode, fullName, history) {
+  renderButtons(parkCode, fullName, history, userFavParks) {
+    const { SaveParkButtonCB, DeleteFavParkCB } = this.context;
 
     if (this.context.logInState)
     {
-      if (findFavParkByParkCode(this.context.favParks, parkCode) || 0)
+      let userFavPark = userFavParks.find(park =>
+        park.parkCode === parkCode);
+      if (userFavPark)
       {
         return (
           <>
+            {/*           
             <button className="btn-generic-mod " type="button"
               onClick={e => this.handleModifyButton()}  >
               Modify</button>
-
+ */}
             <button className="btn-generic-del " type="button"
-              onClick={e => this.handleDeleteButton()}
-            > Delete</button>
+              onClick={e => DeleteFavParkCB(
+                userFavPark.favParkId,
+                userFavPark.userid
+              )}
+            > Remove</button>
           </>
         )
       } else
@@ -43,7 +46,7 @@ class ParkItem extends Component {
         return (
           <>
             <button className="btn-generic-save" type="button"
-              onClick={e => this.context.SaveParkButtonCB(fullName, parkCode, history)}
+              onClick={e => SaveParkButtonCB(fullName, parkCode, history)}
             > Save</button>
           </>
         )
@@ -51,8 +54,10 @@ class ParkItem extends Component {
     }
   }
 
+
   render() {
-    const { itemData, history } = this.props;
+    const { itemData, history, userFavParks } = this.props;
+
 
     let siteAddress = "";
     if (itemData.addresses.length === 0)
@@ -86,13 +91,12 @@ class ParkItem extends Component {
         <button className="btn-generic " type="button"
           onClick={e => this.context.ViewVideoBtnCB(history, itemData.fullName)}
         >Video</button>
-        {this.renderButtons(itemData.parkCode, itemData.fullName, history)}
+        {this.renderButtons(itemData.parkCode, itemData.fullName, history, userFavParks)}
       </div>
 
     )
   }
 }
+
+
 export default ParkItem;
-
-
-

@@ -28,7 +28,7 @@ export default function VideoPage(props) {
     const api_key = 'AIzaSyBGEUctjgxxWPlw7PsY4TaLe01zwsGg3p0'; // 2 
     const searchURL = `https://www.googleapis.com/youtube/v3/search`;
     const searchString = parkNameTemp.replace(/ /g, "+");
-    let maxResults = 2; // don't get too many
+    let maxResults = 4; // don't get too many
 
     const params = {
       key: api_key,

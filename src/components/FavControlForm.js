@@ -67,7 +67,7 @@ class MainControlForm extends Component {
               ? "btn-generic-fav blue"
               : "btn-generic-fav green"
             }
-            onClick={e => FavOrderByCB(idx)}  >
+            onClick={e => FavOrderByCB(idx, option.label, option.sortName)}  >
             {option.label}</button>
         ))}
         </div>
