@@ -14,12 +14,11 @@ The APP's inspiration came from my love of nature and the outdoors, and the unsp
 * Further Narrow down the Park with your choice of Activity.
 * For each park, the APP will show a feature picture of the Park, the Park's official page Link, and address. 
 * Visually explore your favorite park with the 'More Picture' and 'Videos' buttons.
-* User to Can Create His/Her Own Account Via The Registration Page
+* User Can Create His/Her Own Account Via The Registration Page
 * User Can Log in to His/Her Own Account With A Password
-* Logged-in User Can Save a Park to His Account
+* Logged-in User Can Save a Park to His/Her Account
 * Logged-in User Can Add Notes to His/Her Favorite Park
-* Logged-in User Can Sort His Favorite Parks
-
+* Logged-in User Can Sort His/Her Favorite Parks
 
 # Live Demo link and User-Flow Diagram
 
@@ -50,7 +49,10 @@ The APP's inspiration came from my love of nature and the outdoors, and the unsp
 ## About page <<<
 ![about_page](src/images/readme/about_page.jpg)
 
-## Login as user 'demo' page <<<
+## Register for a new user account <<<
+![Register_for_a_new_user_account](src/images/readme/Register_for_a_new_user_account.jpg)
+
+## Login as user 'Demo' <<<
 ![login_as_user_demo_page](src/images/readme/login_as_user_demo_page.jpg)
 
 ## User search park page <<<
@@ -59,13 +61,13 @@ The APP's inspiration came from my love of nature and the outdoors, and the unsp
 ## User favorite park page <<<
 ![user_favorite_park_page](src/images/readme/user_favorite_park_page.jpg)
 
-## User favorite parks sort by park name <<<
+## User favorite parks sorted by park name <<<
 ![user_favorite_park_page_sort_by_park_name](src/images/readme/user_favorite_park_page_sort_by_park_name.jpg)
 
-## User favorite parks sort by rating <<<
+## User favorite parks sorted by rating <<<
 ![user_favorite_park_page_sort_by_rating](src/images/readme/user_favorite_park_page_sort_by_rating.jpg)
 
-## User favorite parks sort by state name <<<
+## User favorite parks sorted by state name <<<
 ![user_favorite_park_page_sort_by_state_name](src/images/readme/user_favorite_park_page_sort_by_state_name.jpg)
 
 ## 'New park' to be saved <<<
@@ -74,10 +76,11 @@ The APP's inspiration came from my love of nature and the outdoors, and the unsp
 ## Add note page for the new park <<<
 ![add_note_page_for_the_new_park](src/images/readme/add_note_page_for_the_new_park.jpg)
 
-## User favorite park page with new park added <<<
+## New park as shown at the 'user favorite park page' <<<
 ![user_favorite_park_page_with_new_park_saved](src/images/readme/user_favorite_park_page_with_new_park_saved.jpg)
 
-## New park at the user search park page <<<
+## New park as shown at the 'search park page' <<<
+## User favorite park page with new park added <<<
 ![new_park_at_the_user_search_park_page](src/images/readme/new_park_at_the_user_search_park_page.jpg)
 
 ## Park to be removed at favorite park page <<<

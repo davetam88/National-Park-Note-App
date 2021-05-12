@@ -75,6 +75,12 @@ class App extends Component {
     }
 
     // const userRec = findUserRecByUsername(this.state.users, username);
+    // initialzie order by buttons, for new user.
+    var initSelect = JSON.parse(JSON.stringify(this.state.favOrderByOptoins));
+    for (let idx = 0; idx < initSelect.length; idx++)
+      initSelect[idx].selected = 0
+    initSelect[0].selected = 1;
+
 
     this.setState({
       users: [
@@ -84,8 +90,9 @@ class App extends Component {
       username: username,
       userRec: currentUser,
       logInState: true,
+      favOrderByOptoins: initSelect,
+      favOrderBySelected: 0,
     })
-
     // store information to database
   }
 
@@ -112,14 +119,14 @@ class App extends Component {
   }
 
 
-  HandleLogout() {
+  LogoutCB = (history) => {
     this.setState({
       logInState: false
     })
+    history.push('/');
   }
 
   FavOrderByCB = (idx, label, sortName) => {
-
     const oldIdx = this.state.favOrderBySelected;
     var newSelect = JSON.parse(JSON.stringify(this.state.favOrderByOptoins));
     newSelect[idx].selected = 1;
@@ -368,8 +375,8 @@ class App extends Component {
           < Route
             path="/logout"
             render={routeProps => {
-              this.HandleLogout()
-              routeProps.history.push('/');
+              this.LogoutCB(routeProps.history)
+              // routeProps.history.push('/');
               return null;
             }}
           />
